@@ -8,7 +8,6 @@
     <router-link to="/register">Register</router-link> | -->
 
     <router-view />
-    <app-LoginBox></app-LoginBox>
     <app-navbar v-if="showMenu"></app-navbar>
   </div>
 </template>
@@ -34,7 +33,6 @@
 
 
 <script>
-import LoginBox from "@/components/auth-components/LoginBox.vue";
 import Header from "@/components/Header.vue";
 import Navbard from "@/components/Navbar.vue";
 // import firebase from 'firebase'
@@ -47,7 +45,6 @@ export default {
     },
   components: {
     appHeader: Header,
-    appLoginBox: LoginBox,
     appNavbar: Navbard,
   },
   computed: {

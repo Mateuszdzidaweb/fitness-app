@@ -5,7 +5,13 @@
 
     </router-link> -->
     <div v-if="authenticated">
-      <button @click="logout" class="myLogout">Logout</button>
+      <!-- <button @click="logout" class="myLogout">Logout</button> -->
+       <div
+       @click="logout"
+        class="flex flex-row justify-between px-2 py-3 items-center" >
+        <h2 class="text-white">Sign Out</h2>
+        <span class="material-icons text-white"> logout </span>
+      </div>
     </div>
   </div>
 </template>

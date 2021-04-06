@@ -142,7 +142,7 @@ export default {
 
 .swiper-slide-prev {
   margin-left: 150px !important;
-  transition: 200ms ease-in-out;
+  transition: 300ms ease-in-out;
 }
 
 .swiper-slide-active {
