@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@main-color: #111928;
+@main-color2: #010124;
+@main-color3: #000010;
+@white-text-color: #ffffff;
+@primary-text-color: #25d3ed;
+@secendar-text-color: #b4b9bf;
+@additional-text-color: #6a7380;
+@nutrition-bg-color: #86c232;
+
+
+.diet-bg-color{
+    background-color: #86c232
+}
+
+.diet-font-color{
+    color: #86c232 !important;
+}
+
+.dark-text-color {
+    color: @main-color2;
+}
+
+.bg-color {
+    background-color: @main-color2;
+}
+
+.nutrition-bg-color {
+    background-color: @nutrition-bg-color;
+}
+
+body {
+    background-color: @main-color2;
+    color: @white-text-color;
+    height: auto;
+}
+
+.top-bar {
+    background-color: @white-text-color;
+    font-size: 24px !important;
+    color: @additional-text-color;
+}
+
+.material-icons {
+    font-size: 35px !important;
+}
+
+.bottom-nav,
+.top-bar {
+    background-color: @main-color3;
+    // box-shadow: 0px 0 10px rgb(0 0 0 / 80%);
+    box-shadow: 0px 0px 12px 11px rgb(0 0 0 / 80%);
+    color: white;
+}
+
+.activePage {
+    color: @primary-text-color  !important;
+}
+
+.swiper-container {
+    // width: 100%;
+    // height: 100px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 24px !important;
+    background: @primary-text-color;
+    color: @main-color;
+    width: 75% !important;
+    border-radius: 10px;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    transform: scale(0.9);
+}
+
+.swiper-slide:nth-child(2n) {
+    width: 60%;
+}
+
+.swiper-slide:nth-child(3n) {
+    width: 40%;
+}
+
+.swiper-slide-active {
+    //   background-color: red;
+    transition: transform .2s;
+    animation: ease-in-out;
+    transform: scale(1.0);
+    border-radius: 10px;
+
+}
+
+
+.transform-rotate {
+    transform: rotate(-45deg);
+}
+
+
+#exerciseProgress,
+#dietProgress{
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    right: 10px;
+    position: absolute;
+}
+
+#exerciseProgress,
+#dietProgress>.progressbar-text {
+    color: @main-color2  !important;
+}
+
+.progressbar-text {
+    top: 45% !important;
+}
+
+
+#achievementsProgressBar {
+    margin: 0px;
+    width: 200px;
+    height: 100px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#achievementsProgressBar>.progressbar-text {
+    top: 0 !important;
+}
+
+.viewAchievementsButton {
+    background-color: @primary-text-color;
+    color: @main-color2;
+}
+
+//   End Home Page
+
+
+.fitnessHeader {
+    background-color: @primary-text-color;
+}
+
+
+.card-bg-color {
+    background-color: @main-color3;
+    // box-shadow: 0px 0px 20px 15px rgb(0 0 0 / 80%);
+}
+
+.card-heading-color {
+    color: @primary-text-color;
+}
+
+.dietHeader {
+    background-color: rgb(237, 130, 111);
+}
+
+.inputWeightBox {
+    border: 2px solid @primary-text-color;
+}
+
+.inputWeigtCalculator {
+    border: 1px solid @main-color2;
+}
+
+
+#weightProgress {
+    margin: 20px;
+    width: 120px;
+    height: 120px;
+    right: 10px;
+    // position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#caloriesBurner,
+#foodTracker {
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    right: 10px;
+    // position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#weightProgress>.progressbar-text {
+    top: 420px !important;
+}
+
+#caloriesBurner>.progressbar-text {
+    top: 350px !important;
+}
+
+
+.btn-add-workout {
+    // background-color: #6617cb;
+    // background-image: linear-gradient(315deg, #6617cb 0%, #cb218e 74%);
+    // box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 30px #6617cb;
+    background-color:  #86c232 !important;
+}
+
+button:hover {
+    box-shadow: 0 0 0 0 #ec008c, 0.2rem 0.2rem 60px #6617cb;
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    body {
+        // background-color: lightgreen;
+    }
+
+    .tablet-swiper{
+        width: 50% !important;
+        
+    }
+
+    .swiper-slide-active {
+        //   background-color: red;
+        transition: transform .2s;
+        animation: ease-in-out;
+        transform: none !important;
+        // border-radius: 10px;
+    
+    }
+
+    #achievementsProgressBar {
+        margin: 0px;
+        width: 300px;
+        height: 200px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    #achievementsProgressBar>.progressbar-text {
+        top: -70px !important;
+       font-size: 80px !important;
+    }
+
+    #exerciseProgress,
+    #dietProgress{
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    right: 10px;
+    position: absolute;
+}
+
+#exerciseProgress >.progressbar-text{
+    font-size: 60px !important;
+}
+
+}

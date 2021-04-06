@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.dark-blue-bg {
+  background-color: #000010;
+}
+.dark-blue-text {
+  color: #000010;
+}
+.main-bg-color {
+  background-color: #010124;
+}
+.main-blue-font {
+  color: #25d3ed;
+}
+.light-blue-bg {
+  background-color: #25d3ed;
+}
+.diet-bg-color {
+  background-color: #86c232 !important;
+}
+.height-full {
+  height: 100vh;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.top-bar {
+  background-color: #000010;
+  box-shadow: 0px 0px 12px 11px rgba(0, 0, 0, 0.8);
+  color: white;
+}
+body {
+  background-color: #010124;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 24px !important;
+  background: #25d3ed;
+  color: #111928;
+  width: 75% !important;
+  border-radius: 10px;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  transform: scale(0.9);
+}
+.swiper-slide:nth-child(2n) {
+  width: 60%;
+}
+.swiper-slide:nth-child(3n) {
+  width: 40%;
+}
+.swiper-slide-active {
+  transition: transform 0.2s;
+  animation: ease-in-out;
+  transform: scale(1);
+  border-radius: 10px;
+}

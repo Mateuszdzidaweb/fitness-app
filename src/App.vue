@@ -1,30 +1,60 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <app-header v-if="showMenu" ></app-header>
+
+    <!-- <router-link to="/">Home</router-link> |
+    <router-link to="/dashboard">Home</router-link> |
+    <router-link to="/login">Login</router-link> |
+    <router-link to="/register">Register</router-link> | -->
+
+    <router-view />
+    <app-LoginBox></app-LoginBox>
+    <app-navbar v-if="showMenu"></app-navbar>
   </div>
-  <router-view/>
 </template>
 
+
+
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
 #nav {
-  padding: 30px;
-
   a {
-    font-weight: bold;
-    color: #2c3e50;
+       color: white ;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #25d3ed !important ;
+      transform: scale(1.1);
+      animation: ease-in-out 0.8s;
     }
+        &:hover{
+            text-decoration: none;
+        }
   }
 }
 </style>
+
+
+<script>
+import LoginBox from "@/components/auth-components/LoginBox.vue";
+import Header from "@/components/Header.vue";
+import Navbard from "@/components/Navbar.vue";
+// import firebase from 'firebase'
+
+export default {
+    data(){
+        return{
+        //    authenticated: sessionStorage.getItem('authenticated') === 'true',
+        }
+    },
+  components: {
+    appHeader: Header,
+    appLoginBox: LoginBox,
+    appNavbar: Navbard,
+  },
+  computed: {
+    showMenu() {
+     return this.$route.path !== '/login' && this.$route.path !== '/register';
+    
+    },
+  },
+};
+</script>
