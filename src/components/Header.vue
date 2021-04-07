@@ -3,7 +3,7 @@
     class="w-full h-14 flex items-center top-0 sticky z-10 top-bar bg-dark-blue px-3 md:h-20"
   >
     <GoBack></GoBack>
-    <h1 class="text-2xl md:text-3xl text-center route-name-width">
+    <h1 class="text-2xl md:text-3xl lg:text-4xl text-center route-name-width">
       {{ $route.name }}
     </h1>
 
@@ -27,7 +27,7 @@
 }
 
 .route-name-width {
-  width: calc(100% + -74px);
+  width: calc(100% + -84px);
 }
 
 @media only screen and (min-width: 768px) {

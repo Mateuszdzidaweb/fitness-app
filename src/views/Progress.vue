@@ -16,7 +16,7 @@
     </router-link>
 
     <router-link
-      to="/"
+      to="/weight-tracker"
       class="rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 mt-5 h-40 flex flex-col justify-center md:w-2/3 m-auto"
       style="background-color: #0d19a3"
     >
@@ -31,7 +31,7 @@
     </router-link>
 
     <router-link
-      to="/"
+      to="/body-tracker"
       class="rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 mt-5 h-40 flex flex-col justify-center md:w-2/3 m-auto"
       style="background-color: #0d19a3"
     >

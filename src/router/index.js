@@ -41,7 +41,7 @@ const routes = [{
     },
     {
         path: '/progress',
-        name: 'Progres',
+        name: 'Progress',
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
@@ -79,6 +79,26 @@ const routes = [{
             description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/progress/PhotoProgress.vue')
+    },
+    {
+        path: '/weight-tracker',
+        name: 'Weight Tracker',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/progress/WeightTracker.vue')
+    },
+    {
+        path: '/body-tracker',
+        name: 'Body Tracker',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/progress/BodyTracker.vue')
     }
 ]
 
