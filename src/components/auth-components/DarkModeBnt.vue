@@ -8,7 +8,6 @@
     <span
       class="rounded-full border w-6 h-6 border-grey shadow-inner bg-white shadow"
     >
-
     </span>
   </span>
   <!-- On -->

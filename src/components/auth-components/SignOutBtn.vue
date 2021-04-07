@@ -8,9 +8,9 @@
       <!-- <button @click="logout" class="myLogout">Logout</button> -->
        <div
        @click="logout"
-        class="flex flex-row justify-between px-2 py-3 items-center" >
+        class="flex flex-row justify-between px-2 py-3 md:py-5 md:text-3xl items-center" >
         <h2 class="text-white">Sign Out</h2>
-        <span class="material-icons text-white"> logout </span>
+        <span class="material-icons sign-out-btn text-white"> logout </span>
       </div>
     </div>
   </div>
@@ -37,6 +37,13 @@ button {
   @media screen and (min-width: 600px) {
     padding: 1em 2em;
   }
+
+  @media only screen and (min-width: 768px) {
+      .sign-out-btn{
+          font-size: 42px !important;
+      }
+  }
+
 }
 </style>
 

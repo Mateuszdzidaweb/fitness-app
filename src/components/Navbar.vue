@@ -37,7 +37,7 @@
         Home
       </h1>
     </router-link>
-    <router-link class="w-14 h-auto px-3 md:w-20" to="/progres">
+    <router-link class="w-14 h-auto px-3 md:w-20" to="/progress">
       <svg
        :class="{ 'router-link-active': isProgresRouteActive }"
         viewBox="0 0 512.0011 512"
@@ -56,7 +56,7 @@
       <h1
         class="text-white text-center activePage flex justify-around pt-1 text-lg md:text-3xl"
       >
-        Progres
+        Progress
       </h1>
     </router-link>
     <router-link class="w-14 h-auto px-3 md:w-20" to="/fitness">
@@ -119,7 +119,7 @@ export default {
       return this.$route.matched.some((route) => route.path === "/home");
     },
     isProgresRouteActive() {
-      return this.$route.matched.some((route) => route.path === "/progres");
+      return this.$route.matched.some((route) => route.path === "/progress");
     },
     isFitnessRouteActive() {
       return this.$route.matched.some((route) => route.path === "/fitness");

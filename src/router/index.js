@@ -40,7 +40,7 @@ const routes = [{
         component: () => import( /* webpackChunkName: "about" */ '../views/auth/Register.vue')
     },
     {
-        path: '/progres',
+        path: '/progress',
         name: 'Progres',
         meta: {
             header_text: 'Sign Up to our cats',
@@ -48,7 +48,7 @@ const routes = [{
             description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
             requiresAuth: true
         },
-        component: () => import( /* webpackChunkName: "about" */ '../views/Progres.vue')
+        component: () => import( /* webpackChunkName: "about" */ '../views/Progress.vue')
     },
     {
         path: '/fitness',
@@ -69,6 +69,16 @@ const routes = [{
             description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/Settings.vue')
+    },
+    {
+        path: '/photo-progress',
+        name: 'Photo Progress',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/progress/PhotoProgress.vue')
     }
 ]
 
