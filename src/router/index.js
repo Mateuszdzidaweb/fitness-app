@@ -61,6 +61,16 @@ const routes = [{
         component: () => import( /* webpackChunkName: "about" */ '../views/Fitness.vue')
     },
     {
+        path: '/diet',
+        name: 'Diet',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/Diet.vue')
+    },
+    {
         path: '/settings',
         name: 'Settings',
         meta: {
@@ -99,6 +109,36 @@ const routes = [{
             description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/progress/BodyTracker.vue')
+    },
+    {
+        path: '/calories-burner',
+        name: 'Calories Burner',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/CaloriesBurner.vue')
+    },
+    {
+        path: '/workout-sessions',
+        name: 'Workout Sessions',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutSessions.vue')
+    },
+    {
+        path: '/food-tracker',
+        name: 'Food Tracker',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/diet/FoodTracker.vue')
     }
 ]
 

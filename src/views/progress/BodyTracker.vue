@@ -10,7 +10,7 @@
       <div class="flex flex-row justify-around">
         <h1 class="text-left mt-1 text-xl md:text-3xl">Age:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -40,7 +40,7 @@
       <div class="flex flex-row justify-around mt-5">
         <h1 class="text-center mt-1 text-xl md:text-3xl">Height:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -51,7 +51,7 @@
       <div class="flex flex-row justify-around mt-5">
         <h1 class="text-center mt-1 text-xl md:text-3xl">Weight:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -76,7 +76,7 @@
       <div class="flex flex-row justify-around">
         <h1 class="text-left mt-1 text-xl md:text-3xl">Age:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -106,7 +106,7 @@
       <div class="flex flex-row justify-around mt-5">
         <h1 class="text-center mt-1 text-xl md:text-3xl">Height:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -117,7 +117,7 @@
       <div class="flex flex-row justify-around mt-5">
         <h1 class="text-center mt-1 text-xl md:text-3xl">Weight:</h1>
         <input
-          class="w-20 h-8 rounded-xl inputWeigtCalculator text-center"
+          class="w-20 h-8 rounded-xl text-center input-border text-white"
           type="number"
           id="quantity"
           name="quantity"
@@ -135,3 +135,13 @@
            <div class="h-28"></div>
   </div>
 </template>
+
+
+<style lang="less">
+
+.input-border{
+    border: 1px solid #25d3ed;
+    background: none;
+}
+    
+</style>

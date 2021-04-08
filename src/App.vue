@@ -21,8 +21,8 @@
 
     &.router-link-exact-active {
       color: #25d3ed !important ;
-      transform: scale(1.1);
-      animation: ease-in-out 0.8s;
+      transform: scale(1.2);
+      animation: ease-in-out 1s;
     }
         &:hover{
             text-decoration: none;
