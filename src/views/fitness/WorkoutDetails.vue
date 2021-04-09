@@ -2,7 +2,7 @@
   <h1 class="text-white">Single Workout</h1>
   <h1 class="text-white">The workout ID is {{ id }}</h1>
   <div v-if="workout">
-    <h1 class="text-red-500 text-3xl">Title {{ workout.title }}</h1>
+    <h1 class="text-red-500 text-3xl">Title: {{ workout.title }}</h1>
   </div>
 
   <!-- <div class="flex mb-5 flex-row flex-wrap">
@@ -28,7 +28,7 @@ export default {
   mounted() {
     axios
       .get(
-        "https://gist.githubusercontent.com/Mateuszdzidaweb/93771e69396d15f796f95d00c2d69b44/raw/644c28262f7dce6ba0e672679f8fa6160e910648/workouts/"
+        "https://my-json-server.typicode.com/Mateuszdzidaweb/fitness-app/workouts/" + this.id
       )
       .then((response) => {
         this.workout = response.data;
