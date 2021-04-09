@@ -18,8 +18,8 @@
       <!-- <p class="text-sm text-gray-500 uppercase font-bold">WEDNESDAY 5 AUGUST</p> -->
     </div>
     <div class="flex mb-5 flex-row flex-wrap">
-      <div v-for="item in workout" v-bind:key="item.id" class="w-1/2 px-1">
-        <router-link :to="{ name: 'WorkoutDetails', params: { id: item.id }}"
+      <div v-for="workout in workouts" v-bind:key="workout.id" class="w-1/2 px-1">
+        <router-link :to="{ name: 'Workout Details', params: { id: workout.id }}"
  
           class="block mb-2 p-5 rounded overflow-hidden transform transition-all duration-300 scale-100 hover:scale-95 backgroundImage"
           :style="{
@@ -28,7 +28,7 @@
         >
           <div class="h-32"></div>
           <h3 class="text-lg font-bold text-white leading-tight">
-            {{ item.title }}
+            {{ workout.title }}
           </h3>
         </router-link>
       </div>
@@ -41,11 +41,11 @@
 <script>
 const axios = require("axios");
 const url =
-  "https://gist.githubusercontent.com/Mateuszdzidaweb/93771e69396d15f796f95d00c2d69b44/raw/644c28262f7dce6ba0e672679f8fa6160e910648/workouts";
+  "https://my-json-server.typicode.com/Mateuszdzidaweb/fitness-app/workouts/";
 export default {
   data() {
     return {
-      workout: [],
+      workouts: [],
       workoutType: [],
     };
   },
@@ -64,7 +64,7 @@ export default {
     axios
       .get(url)
       .then((response) => {
-        this.workout = response.data.results;
+        this.workouts = response.data;
         // this.workoutType = response.data;
         console.log(response);
       })

@@ -132,7 +132,7 @@ const routes = [{
     },
     {
         path: '/workout-details/:id',
-        name: 'WorkoutDetails',
+        name: 'Workout Details',
         props: true,
         meta: {
             header_text: 'Sign Up to our cats',
