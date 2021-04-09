@@ -4,49 +4,49 @@
             "title": "Press Ups",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "20 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         },
         {
             "id": 2,
             "title": "Squats",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "10 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         },
         {
             "id": 3,
             "title": "Dumbbel Strenght",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "12 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         },
         {
             "id": 4,
             "title": "Bodyweight Strenght",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "10 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         },
         {
             "id": 5,
             "title": "Cardio",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "22 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         },
         {
             "id": 6,
             "title": "Bench Press",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "8 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         }, 
         {
             "id": 7,
             "title": "Cardio",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "30 min",
-            "image": "@/assets/fitness-img/fitnesIMG-2.png"
+            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
         }
     ]
 }

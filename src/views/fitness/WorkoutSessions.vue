@@ -23,7 +23,7 @@
  
           class="block mb-2 p-5 rounded overflow-hidden transform transition-all duration-300 scale-100 hover:scale-95 backgroundImage"
           :style="{
-            backgroundImage: `url(${require('@/assets/fitness-img/fitnesIMG-2.png')})`,
+            backgroundImage: `url(${require(workout.image)})`,
           }"
         >
           <div class="h-32"></div>
