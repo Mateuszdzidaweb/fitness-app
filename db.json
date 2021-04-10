@@ -1,52 +1,67 @@
 {
     "workouts": [{
             "id": 1,
-            "title": "Press Ups",
-            "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
+            "title": "Upper Body",
+            "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
             "duration": "20 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "bodyFocus": "Upper Body",
+            "caloriesBurn": "105-192",
+            "difficulty": "4/5",
+            "equipment": "Dumbbell",
+            "trainigType": "Low Impact, Strength Training",
+            "focusIcon": "bodyIcon-blue.svg",
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "UpperBodyWorkout.png",
+            "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
+
         },
         {
             "id": 2,
             "title": "Squats",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "10 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         },
         {
             "id": 3,
             "title": "Dumbbel Strenght",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "12 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         },
         {
             "id": 4,
             "title": "Bodyweight Strenght",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "10 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         },
         {
             "id": 5,
             "title": "Cardio",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "22 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         },
         {
             "id": 6,
             "title": "Bench Press",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "8 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         }, 
         {
             "id": 7,
             "title": "Cardio",
             "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. At nisi minus debitis aperiam, dicta unde.",
             "duration": "30 min",
-            "image": "'@/assets/fitness-img/fitnesIMG-2.png'"
+            "thumbnail": "UpperBodyWorkoutThumb.png",
+            "image" : "fitnesIMG-2.png"
         }
     ]
 }

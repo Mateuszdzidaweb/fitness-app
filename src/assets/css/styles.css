@@ -26,6 +26,9 @@
   margin-left: auto;
   margin-right: auto;
 }
+.gray-text-color {
+  color: #6a7380;
+}
 .top-bar {
   background-color: #000010;
   box-shadow: 0px 0px 12px 11px rgba(0, 0, 0, 0.8);
