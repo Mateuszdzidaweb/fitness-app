@@ -7,7 +7,7 @@
         alt=""
       />
     </div>
-    <h1 class="text-center pt-2 text-xl md:text-5xl text-white">{{ email }}</h1>
+    <h1 v-if="email" class="text-center pt-2 text-xl md:text-5xl text-white">{{ email }}</h1>
     <div class="swiper-container h-44 mt-6 md:h-60 flex flex-row">
       <swiper class="swiper-wrapper w-full" :options="swiperOption">
         <swiper-slide class="slider ml-5">
