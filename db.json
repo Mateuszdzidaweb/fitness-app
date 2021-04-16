@@ -1,6 +1,6 @@
 {
     "workouts": [{
-            "id": 1,
+            "id": 0,
             "title": "Upper Body",
             "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
             "duration": "20 min",
@@ -16,7 +16,7 @@
 
         },
         {
-            "id": 2,
+            "id": 1,
             "title": "Bodyweight Cardio",
             "description": "This is a super fun, quick, energy-boosting cardio workout that targets the butt and thighs. You can easily scale this workout to be a low impact challenge that improves blood flow and increases your cardiovascular health and endurance, or you can move quickly, do the hardest version of the exercises, or even add weights or resistance bands in order to step up the intensity for a sweaty, endurance, and strength-building workout. It really is up to you, and what you need, so be open to your body’s signals and be willing to meet yourself exactly where you’re at today.",
             "duration": "18 min",
@@ -31,7 +31,7 @@
             "videoURL": "https://www.youtube.com/embed/q720lr3cAx8"
         },
         {
-            "id": 3,
+            "id": 2,
             "title": "Pilates Strength Workout",
             "description": "We start off with a short cardio warm up before moving into a quick round of Pilates exercises to further warm up the body and engage the glute muscles we will be targeting. Next up is a short round of HIIT - just enough to break a sweat and get the heart pounding. Then we have a single round of a dynamic set of strength exercises that use multiple ranges of motion to challenge the lower body. Finish up with a cool down and stretch and you have yourself a workout complete.",
             "duration": "42 min",
@@ -46,7 +46,7 @@
             "videoURL": "https://www.youtube.com/embed/lhJkJqNRXI8"
         },
         {
-            "id": 4,
+            "id": 3,
             "title": "1000 Calorie Workout",
             "description": "Before we start into anything, we want to take a minute to thank the real heroes of the world we’re living in at the moment; nurses, doctors, CNAs, scientists, lab technicians, grocery store workers, truck drivers, and the many others on the frontlines who are keeping important systems up and running. This is a scary, stressful time. Feeling gratitude towards others, and helping others in need, can help with all of the uncertainty. If you can, donate to your local food banks - when we donated we were told that monetary donations are the safest option at this time.",
             "duration": "90 min",
@@ -61,7 +61,7 @@
             "videoURL": "https://www.youtube.com/embed/WOP8_Mp5qAA"
         },
         {
-            "id": 5,
+            "id": 4,
             "title": "Lower Body Strength",
             "description": "In this lower body strength workout we are going to challenge your muscles in two ways. First we will challenge the strength of your legs in a specific motion, for example lunges. Then we will challenge those same muscle’s endurance by doing the same exercise but in a hold rather than a repeating movement. This workout actually tries to incorporate the two types of muscle fibers in skeletal muscle, fast twitch (think strength and power) and slow twitch (think endurance and high repetition), in the same routine. Because we will be holding all of these movements as close to their max load angle as we can, the slow twitch fibers will give out very rapidly as compared to a lighter load angle. To illustrate this think of the difficulty of a squat with only a slight bend at the knee (a light-load angle) versus the knee bent at a 90 degree (heavy-load angle). So in other words, get ready to feel your legs burn.",
             "duration": "50 min",
@@ -76,7 +76,7 @@
             "videoURL": "https://www.youtube.com/embed/WibZDP3VYDo"
         },
         {
-            "id": 6,
+            "id": 5,
             "title": "Total Body Kettlebell",
             "description": "For those of you that follow our work pretty closely, you will know that this is the first kettlebell workout video that we have put out in a while. Honestly, I had forgotten how much fun they are. Whether you are using a true kettlebell, or a dumbbell to do these exercises, they are just fun. They types of movements used just make me feel like a beast even if the movement is not that difficult or I’m not using that much weight…. Or is that just me? Ha. I think that the methodical and controlled nature of our more traditional style of strength training (though incredibly efficient at evenly building strength and muscle) can become a bit predictable - though that goes for any training style - which is why we always suggest weaving in many different types of training. We usually shy away from indulging in using momentum to assist a movement but it can be a fun departure to sling, swing, and pop a weight around utilizing a larger chain of muscles rather than focusing on isolating just one main driver.",
             "duration": "45 min",
@@ -93,7 +93,7 @@
     ],
 
     "cardios": [{
-            "id": 1,
+            "id": 0,
             "title": "Cardio",
             "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
             "duration": "20 min",
@@ -107,6 +107,22 @@
             "image": "cardioIMG-1.jpg",
             "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
         },
+        {
+            "id": 1,
+            "title": "Cardio",
+            "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
+            "duration": "20 min",
+            "bodyFocus": "Upper Body",
+            "caloriesBurn": "105-192",
+            "difficulty": "4/5",
+            "equipment": "Dumbbell",
+            "trainigType": "Low Impact, Strength Training",
+            "focusIcon": "bodyIcon-blue.svg",
+            "thumbnail": "cardioIMG-2.jpg",
+            "image": "cardioIMG-2.jpg",
+            "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
+        },
+
         {
             "id": 2,
             "title": "Cardio",
@@ -118,29 +134,13 @@
             "equipment": "Dumbbell",
             "trainigType": "Low Impact, Strength Training",
             "focusIcon": "bodyIcon-blue.svg",
-            "thumbnail": "cardioIMG-1.jpg",
-            "image": "cardioIMG-1.jpg",
+            "thumbnail": "cardioIMG-3.jpg",
+            "image": "cardioIMG-4.jpg",
             "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
         },
 
         {
             "id": 3,
-            "title": "Cardio",
-            "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
-            "duration": "20 min",
-            "bodyFocus": "Upper Body",
-            "caloriesBurn": "105-192",
-            "difficulty": "4/5",
-            "equipment": "Dumbbell",
-            "trainigType": "Low Impact, Strength Training",
-            "focusIcon": "bodyIcon-blue.svg",
-            "thumbnail": "cardioIMG-1.jpg",
-            "image": "cardioIMG-1.jpg",
-            "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
-        },
-
-        {
-            "id": 4,
             "title": "Cardio",
             "description": "This upper body workout makes for a great burnout round, and it’s excellent for increasing strength in order to be able to do more push ups. You can use this at the end of a longer workout, or you can add a warm up and cool down and use it as a standalone routine.",
             "duration": "20 min",

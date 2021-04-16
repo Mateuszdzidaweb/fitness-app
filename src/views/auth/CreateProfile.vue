@@ -7,21 +7,21 @@
         <h1
           class="mb-4 text-4xl md:text-5xl text-center main-blue-font font-bold"
         >
-          Sign up
+          Create your profile
         </h1>
-                <input
+        <input
           type="text"
           v-model="name"
-            class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white mt-10"
+          class="block border border-grey-light w-full p-3 rounded mb-4"
           name="name"
-          placeholder="Name"
+          placeholder="Full Name"
           required
         />
 
-        <input
+        <!-- <input
           type="email"
           v-model="email"
-          class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white"
+          class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white mt-10"
           name="myEmail"
           placeholder="Email"
           required
@@ -33,7 +33,7 @@
           class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white"
           name="password"
           placeholder="Password"
-        />
+        /> -->
         <!-- <input 
                         type="password"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -43,38 +43,12 @@
       <div class="flex flex-col">
         <button
           type="submit"
-          @click="signUp"
+          @click="updateProfile"
           class="w-full md:w-2/4 m-auto text-center py-3 rounded-2xl light-blue-bg dark-blue-text font-bold hover:bg-green-dark focus:outline-none my-1 text-xl"
         >
           Create Account
         </button>
 
-        <div class="text-center text-sm text-white mt-5 text-md md:text-xl">
-          By signing up, you agree to the
-          <a
-            class="no-underline border-b border-grey-dark text-grey-dark text-md md:text-xl"
-            href="#"
-          >
-            Terms of Service
-          </a>
-          and
-          <a
-            class="no-underline border-b border-grey-dark text-white text-md md:text-xl"
-            href="#"
-          >
-            Privacy Policy
-          </a>
-        </div>
-
-        <div class="text-white text-center text-md md:text-xl mt-5">
-          Already have an account?
-          <router-link
-            class="no-underline border-b text-lg md:text-2xl main-blue-font ml-2"
-            to="/login"
-          >
-            Log in </router-link
-          >.
-        </div>
       </div>
     </div>
   </div>
@@ -117,8 +91,7 @@ select:-webkit-autofill:focus {
 
 <script>
 // import Register from "@/components/auth-components/RegisterComponent.vue";
-import firebase from "firebase";
-let db = firebase.firestore();
+// import firebase from "firebase";
 export default {
   //   name: "Register",
   components: {
@@ -126,38 +99,11 @@ export default {
   },
   data() {
     return {
-    
+      name: "",
     };
   },
   methods: {
-    signUp() {
-      event.preventDefault();
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then(
-          (user) => {
-            alert(`Account created for ${user.email}`);
-            console.log(user);
-            // Add a new document in collection "profiles"
-            db.collection("profiles")
-              .doc(user.user.uid)
-              .set({
-                  name: this.name
-              })
-              .then(() => {
-                console.log("Document successfully written!");
-              })
-              .catch((error) => {
-                console.error("Error writing document: ", error);
-              });
-            this.$router.replace("/create-profile");
-          },
-          (err) => {
-            alert("Sorry you could not sign up" + err.message);
-          }
-        );
-    },
-  },
+
+  }
 };
 </script>

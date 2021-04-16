@@ -7,10 +7,13 @@
         alt=""
       />
     </div>
-    <h1 v-if="email" class="text-center pt-2 text-xl md:text-5xl text-white">{{ email }}</h1>
-    <div class="swiper-container h-44 mt-6 md:h-60 flex flex-row">
-      <swiper class="swiper-wrapper w-full" :options="swiperOption">
-        <swiper-slide class="slider ml-5">
+    <h1 class="text-center pt-2 text-2xl md:text-5xl text-white">
+      {{ profile.name }}
+    </h1>
+    <h1></h1>
+    <div class="swiper-container h-44 mt-10 md:h-60 flex flex-row">
+      <swiper class="swiper-wrapper-home w-full" :options="swiperOption">
+        <swiper-slide class="slider-home ml-5">
           <span class="w-20 h-auto top-4 absolute md:w-32">
             <img
               class="ml-5 transform-rotate"
@@ -41,13 +44,18 @@
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 import firebase from "firebase";
+let db = firebase.firestore();
+require("firebase/firestore");
+// import { fb, db } from "../assets/js/AuthConfig";
 // Import Swiper styles
 import "swiper/swiper.scss";
 export default {
   data() {
     return {
+      profile: [],
+
       user: null,
-      email: null,
+      logedinUser: null,
       swiperOption: {
         slidesPerView: "auto",
         spaceBetween: 20,
@@ -63,26 +71,52 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  //   firestore(){
+  //       const user = fb.auth().currentUser;
+  //       return{
+  //           profile: db.collection('profiles').doc(user.uid),
+  //       }
+  //   },
+  created() {
+    this.getUsername();
+  },
   methods: {
+    getUsername() {
+      // Query database in real time
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("profiles")
+            .doc(user.uid)
+            .onSnapshot((doc) => {
+              this.profile = doc.data();
+              console.log(this.profile);
+            });
+        } else {
+          this.profile = null;
+        }
+      });
+    //   No Real time daatabase query
+    //   firebase.auth().onAuthStateChanged((user) => {
+    //     if (user) {
+    //       db.collection("profiles")
+    //         .doc(user.uid)
+    //         .get()
+    //         .then((doc) => {
+    //           this.profile = doc.data();
+    //           console.log(this.profile);
+    //         });
+    //     } else {
+    //       this.profile = null;
+    //     }
+    //   });
+    },
+
     onSwiper(swiper) {
       console.log(swiper);
     },
     onSlideChange() {
       console.log("slide change");
     },
-  },
-  created() {
-    // firebase.auth().onAuthStateChanged((user) => {
-    //   if (user) {
-    //     this.user = user;
-    //   } else {
-    //     this.user = null;
-    //   }
-    // });
-    setTimeout(() => {
-      let user = firebase.auth().currentUser;
-      this.email = user.email;
-    }, 0.1);
   },
 };
 </script>
@@ -94,12 +128,10 @@ export default {
   /* transition-duration: 0ms; transform: translate3d(-190px, 0px, 0px) !important; */
   /* transform: translate3d(-190px, 0px, 0px); */
 }
-
 .translate {
   transform: translate3d(-190px, 0px, 0px);
 }
-
-.slider {
+.slider-home {
   text-align: center;
   font-size: 24px !important;
   width: 75% !important;
@@ -121,15 +153,13 @@ export default {
   align-items: center;
   transform: scale(0.9);
 }
-
-.slider {
+.slider-home {
   flex-shrink: 0;
   width: 100%;
   height: 100%;
   position: relative;
   transition-property: transform;
 }
-
 /* .swiper-slide {
     width: 80%;
   }
@@ -139,12 +169,10 @@ export default {
   .swiper-slide:nth-child(3n) {
     width: 40%;
   } */
-
-.swiper-slide-prev {
+.swiper-wrapper-home > .swiper-slide-prev {
   margin-left: 150px !important;
   transition: 300ms ease-in-out;
 }
-
 .swiper-slide-active {
   transition: transform 0.2s;
   animation: ease-in-out;

@@ -34,10 +34,21 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to fitness app',
             title: 'Sign Up Page',
-            description: 'This page is a Sing Up page for fitness app',
+            description: '',
         },
 
         component: () => import( /* webpackChunkName: "about" */ '../views/auth/Register.vue')
+    },
+    {
+        path: '/create-profile',
+        name: 'Create Profile',
+        meta: {
+            header_text: 'Sign Up to fitness app',
+            title: 'Sign Up Page',
+            description: '',
+        },
+
+        component: () => import( /* webpackChunkName: "about" */ '../views/auth/CreateProfile.vue')
     },
     {
         path: '/progress',
@@ -45,7 +56,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
             requiresAuth: true
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/Progress.vue')
@@ -56,7 +67,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/Fitness.vue')
     },
@@ -66,7 +77,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/Diet.vue')
     },
@@ -76,7 +87,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/Settings.vue')
     },
@@ -86,7 +97,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/progress/PhotoProgress.vue')
     },
@@ -96,7 +107,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/progress/WeightTracker.vue')
     },
@@ -106,7 +117,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/progress/BodyTracker.vue')
     },
@@ -116,7 +127,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/CaloriesBurner.vue')
     },
@@ -126,7 +137,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutSessions.vue')
     },
@@ -137,7 +148,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutDetails.vue')
     },
@@ -148,7 +159,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutDetailsCardio.vue')
     },
@@ -158,7 +169,7 @@ const routes = [{
         meta: {
             header_text: 'Sign Up to our cats',
             title: 'Sign Up Page',
-            description: 'This page is a test page for learning about Vue CLI. Its subject is cats',
+            description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/diet/FoodTracker.vue')
     }

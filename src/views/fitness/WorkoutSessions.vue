@@ -1,6 +1,5 @@
 <template>
   <div class="workout-sessions mb-28 md:mb-40">
-
     <div class="mb-3 md:mb-5 md:mt-2 md:px-6 m-auto">
       <h1 class="text-3xl md:text-4xl font-bold p-2 my-2 ml-5 text-white">
         Workout
@@ -31,11 +30,13 @@
         </router-link>
       </div>
     </div>
-    <h1 class="text-3xl md:text-4xl font-bold p-2 md:p-5 my-2 ml-6 md:ml-14 text-white">
+    <h1
+      class="text-3xl md:text-4xl font-bold p-2 md:p-5 my-2 ml-6 md:ml-14 text-white"
+    >
       Cardio
     </h1>
-    
-     
+
+         
     <swiper
       class="swiper-wrapper w-full justify-center"
       :slides-per-view="auto"
@@ -47,7 +48,7 @@
       <swiper-slide
         v-for="cardio in cardios"
         v-bind:key="cardio.id"
-        class="backgroundImageCardio"
+        class="backgroundImageCardio slider-cardio"
         :style="{
           background:
             'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(' +
@@ -62,7 +63,6 @@
      </router-link>
       </swiper-slide>
     </swiper>
-     
   </div>
 </template>
 
@@ -75,8 +75,10 @@ SwiperCore.use([Pagination]);
 import "swiper/swiper.scss";
 import "swiper/components/pagination/pagination.scss";
 const axios = require("axios");
-const url = "https://my-json-server.typicode.com/Mateuszdzidaweb/fitness-app/workouts";
-const cardioURl = "https://my-json-server.typicode.com/Mateuszdzidaweb/fitness-app/cardios";
+const url =
+  "https://fintess-app-863f3-default-rtdb.firebaseio.com/workouts" + ".json";
+const cardioURl =
+  "https://fintess-app-863f3-default-rtdb.firebaseio.com/cardios" + ".json";
 export default {
   data() {
     return {
@@ -93,18 +95,16 @@ export default {
       .get(url)
       .then((response) => {
         this.workouts = response.data;
-        // this.workoutType = response.data;
         console.log(response);
       })
       .catch((error) => {
         console.log(error);
       });
-
+      
     axios
       .get(cardioURl)
       .then((response) => {
         this.cardios = response.data;
-        // this.workoutType = response.data;
         console.log(response);
       })
       .catch((error) => {
@@ -152,27 +152,27 @@ export default {
 //   transition: 300ms ease-in-out;
 // }
 
-.swiper-slide-active {
-  transition: transform 0.2s;
-  animation: ease-in-out;
-  transform: scale(1);
-  border-radius: 10px;
-}
-.swiper-slide {
+// .swiper-slide-active {
+//   transition: transform 0.2s;
+//   animation: ease-in-out;
+//   transform: scale(1);
+//   border-radius: 10px;
+// }
+.slider-cardio{
   width: 80% !important;
   height: 200px;
   margin-left: 35px;
 }
 
-.swiper-slide:nth-child(2) {
+.slider-cardio:nth-child(2) {
   margin-left: 70px;
 }
 
-.swiper-slide:nth-child(3) {
+.slider-cardio:nth-child(3) {
   margin-left: 80px;
 }
 
-.swiper-slide:nth-child(4) {
+.slider-cardio:nth-child(4) {
   margin-left: 75px;
 }
 
@@ -193,25 +193,23 @@ export default {
     background-size: cover !important;
   }
 
-  .swiper-slide {
+  .slider-cardio{
     width: 80% !important;
     height: 250px;
     margin-left: 75px;
   }
 
-  .swiper-slide:nth-child(2) {
+  .slider-cardio:nth-child(2) {
     margin-left: 150px;
   }
 
-  .swiper-slide:nth-child(3) {
+  .slider-cardio:nth-child(3) {
     margin-left: 150px;
   }
 
-  .swiper-slide:nth-child(4) {
+  .slider-cardio:nth-child(4) {
     margin-left: 155px;
   }
-
-  
 }
 
 @media only screen and (min-width: 1024px) {
@@ -220,24 +218,22 @@ export default {
     background-size: cover !important;
   }
 
-  .swiper-slide {
+  .slider-cardio {
     width: 80% !important;
     height: 300px;
     margin-left: 100px;
   }
 
-  .swiper-slide:nth-child(2) {
+  .slider-cardio:nth-child(2) {
     margin-left: 200px;
   }
 
-  .swiper-slide:nth-child(3) {
+  .slider-cardio:nth-child(3) {
     margin-left: 200px;
   }
 
-  .swiper-slide:nth-child(4) {
+  .slider-cardio:nth-child(4) {
     margin-left: 205px;
   }
-
-  
 }
 </style>
