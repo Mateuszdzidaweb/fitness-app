@@ -138,8 +138,7 @@
 import WorkoutVideoModal from "@/components/WorkoutVideoModal.vue";
 
 const axios = require("axios");
-// const url =
-//   "https://gist.githubusercontent.com/Mateuszdzidaweb/93771e69396d15f796f95d00c2d69b44/raw/1067ee889bee38acfa7424191d6dee39338e32e9/workouts.json";
+
 export default {
   props: ["id"],
   data() {

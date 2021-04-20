@@ -2,11 +2,14 @@
   <div class="dashboard">
     <div class="w-32 h-auto mt-6 m-auto md:py-10 md:w-42">
       <img
-        class="rounded-full"
-        src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60"
+        class="rounded-full w-auto h-32"
+        v-bind:src="profile.avatarURL"
         alt=""
       />
     </div>
+    <!-- <h1 v-for="user in Users" :key="user.key" class="text-center pt-2 text-xl md:text-5xl text-white">
+      {{ user.name }}
+    </h1> -->
     <h1 class="text-center pt-2 text-2xl md:text-5xl text-white">
       {{ profile.name }}
     </h1>
@@ -23,7 +26,7 @@
           </span>
           <h1 class="p-5 font-medium dark-text-color md:text-4xl">Exercises</h1>
         </swiper-slide>
-        <swiper-slide class="slider2 diet-bg-color">
+        <swiper-slide class="slider-home slider2 diet-bg-color">
           <span class="w-20 h-auto top-4 absolute md:w-32">
             <img
               class="ml-5 transform-rotate"
@@ -46,6 +49,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import firebase from "firebase";
 let db = firebase.firestore();
 require("firebase/firestore");
+import 'firebase/storage'
 // import { fb, db } from "../assets/js/AuthConfig";
 // Import Swiper styles
 import "swiper/swiper.scss";
@@ -53,7 +57,7 @@ export default {
   data() {
     return {
       profile: [],
-
+      avatarSRC: "no avatar",
       user: null,
       logedinUser: null,
       swiperOption: {
@@ -95,21 +99,33 @@ export default {
           this.profile = null;
         }
       });
-    //   No Real time daatabase query
-    //   firebase.auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //       db.collection("profiles")
-    //         .doc(user.uid)
-    //         .get()
-    //         .then((doc) => {
-    //           this.profile = doc.data();
-    //           console.log(this.profile);
-    //         });
-    //     } else {
-    //       this.profile = null;
-    //     }
-    //   });
+      //   No Real time daatabase query
+      //   firebase.auth().onAuthStateChanged((user) => {
+      //     if (user) {
+      //       db.collection("profiles")
+      //         .doc(user.uid)
+      //         .get()
+      //         .then((doc) => {
+      //           this.profile = doc.data();
+      //           console.log(this.profile);
+      //         });
+      //     } else {
+      //       this.profile = null;
+      //     }
+      //   });      
     },
+
+    // getUserAvatar(){
+    //     firebase.auth.onAuthStateChanged((user) => {
+    //         if(user){
+    //             db.colection("profiles")
+    //             .doc(user.uid)
+    //             .onSnapshot((doc) => {
+
+    //             })
+    //         }
+    //     });
+    // },
 
     onSwiper(swiper) {
       console.log(swiper);
@@ -122,7 +138,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="less">
 .swiper-slide,
 .swiper-wrapper {
   /* transition-duration: 0ms; transform: translate3d(-190px, 0px, 0px) !important; */
@@ -152,6 +168,10 @@ export default {
   -webkit-align-items: center;
   align-items: center;
   transform: scale(0.9);
+  &.swiper-slide-prev {
+    margin-left: 150px !important;
+    transition: 300ms ease-in-out;
+  }
 }
 .slider-home {
   flex-shrink: 0;
@@ -169,10 +189,7 @@ export default {
   .swiper-slide:nth-child(3n) {
     width: 40%;
   } */
-.swiper-wrapper-home > .swiper-slide-prev {
-  margin-left: 150px !important;
-  transition: 300ms ease-in-out;
-}
+
 .swiper-slide-active {
   transition: transform 0.2s;
   animation: ease-in-out;
