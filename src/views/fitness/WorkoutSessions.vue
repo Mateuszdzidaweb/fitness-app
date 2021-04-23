@@ -131,33 +131,6 @@ export default {
   margin-top: 100px !important;
   // background-color: red !important;
 }
-
-// .swiper-slide-prev {
-//   margin-left: 130px !important;
-//   transition: 300ms ease-in-out;
-// }
-
-// .swiper-slide-prev:nth-child(2) {
-//   margin-left: 170px !important;
-//   transition: 300ms ease-in-out;
-// }
-
-// .swiper-slide-prev:nth-child(3) {
-//   margin-left: 280px !important;
-//   transition: 300ms ease-in-out;
-// }
-
-// .swiper-slide-prev:nth-child(4) {
-//   margin-left: 30px !important;
-//   transition: 300ms ease-in-out;
-// }
-
-// .swiper-slide-active {
-//   transition: transform 0.2s;
-//   animation: ease-in-out;
-//   transform: scale(1);
-//   border-radius: 10px;
-// }
 .slider-cardio{
   width: 80% !important;
   height: 200px;

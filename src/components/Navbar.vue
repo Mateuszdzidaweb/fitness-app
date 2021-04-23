@@ -1,6 +1,6 @@
 <template>
   <div id="nav"
-    class="w-full h-20 flex items-center justify-around bottom-nav dark-blue-bg bottom-0 fixed py-1 md:h-32 z-10 pt-2"
+    class="w-full h-20 flex items-center justify-around bottom-nav dark-blue-bg bottom-0 fixed py-1 md:h-32 z-10 pt-2 z-99"
   >
     <router-link class="w-14 h-auto px-3 md:w-20" to="/home">
       <svg
@@ -11,7 +11,7 @@
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
         x="0px"
-        y="0px"
+        y="0px" 
         viewBox="0 0 512 512"
         style="enable-background: new 0 0 512 512"
         xml:space="preserve"

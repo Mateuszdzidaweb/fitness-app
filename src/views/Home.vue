@@ -1,16 +1,31 @@
 <template>
   <div class="dashboard">
-    <div class="w-32 h-auto mt-6 m-auto md:py-10 md:w-42">
+    <div
+      v-if="profile.avatarURL"
+      class="w-32 h-auto mt-6 m-auto md:py-10 md:w-42"
+    >
       <img
         class="rounded-full w-auto h-32"
         v-bind:src="profile.avatarURL"
         alt=""
       />
     </div>
+
+    <div
+      v-if="profile.avatarURL == null || profile.avatarURL == ''"
+      class="w-32 h-auto mt-6 m-auto md:py-10 md:w-42"
+    >
+      <img
+        class="rounded-full w-auto h-auto bg-white"
+        src="https://i.ibb.co/dbR1RMq/93-938537-png-file-fa-user-circle-o-transparent-png-removebg-preview.png"
+        alt=""
+      />
+    </div>
+
     <!-- <h1 v-for="user in Users" :key="user.key" class="text-center pt-2 text-xl md:text-5xl text-white">
       {{ user.name }}
     </h1> -->
-    <h1 class="text-center pt-2 text-2xl md:text-5xl text-white">
+    <h1 class="text-center pt-2 mt-2 text-2xl md:text-5xl text-white">
       {{ profile.name }}
     </h1>
     <h1></h1>
@@ -49,7 +64,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import firebase from "firebase";
 let db = firebase.firestore();
 require("firebase/firestore");
-import 'firebase/storage'
+import "firebase/storage";
 // import { fb, db } from "../assets/js/AuthConfig";
 // Import Swiper styles
 import "swiper/swiper.scss";
@@ -112,7 +127,7 @@ export default {
       //     } else {
       //       this.profile = null;
       //     }
-      //   });      
+      //   });
     },
 
     // getUserAvatar(){

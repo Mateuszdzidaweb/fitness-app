@@ -1,29 +1,37 @@
 <template>
   <div class="registerComponent main-bg-color">
     <div
-      class="px-6 py-8 rounded w-full height-full flex flex-col justify-around"
+      class="px-6 py-8 rounded w-full height-full flex flex-col md:justify-around"
     >
       <div class="md:w-2/3 center lg:w-2/4">
         <h1
           class="mb-4 text-4xl md:text-5xl text-center main-blue-font font-bold"
         >
-          Create your profile
+          Set up profile
         </h1>
 
-        <img class="w-20 h-20" v-bind:src="avatarSRC" alt="" />
+        <!-- <img class="w-20 h-20" src="@/assets/fitness-img/user-default-img.png" alt="" /> -->
+        <div class="w-32 h-32 mt-6 m-auto md:py-10 md:w-42">
+          <img
+            class="rounded-full w-auto h-32 bg-white"
+            v-bind:src="avatarSRC"
+            alt=""
+          />
+        </div>
 
-        <label class="text-white" for="avatar">Choose a profile picture:</label>
+        <!-- <label class="text-white" for="avatar">Choose a profile picture:</label> -->
+        <div class="w-full h-auto flex flex-row">
+          <input
+            type="file"
+            @change="uploadProfileimage"
+            id="avatar"
+            name="avatar"
+            class="custom-file-input m-auto mt-5"
+            accept="image/png, image/jpg"
+          />
+        </div>
 
-        <input
-          type="file"
-          @change="uploadProfileimage"
-          id="avatar"
-          name="avatar"
-          class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
-          accept="image/png, image/jpg"
-        />
-
-        <label class="text-white" for="avatar">Age</label>
+        <label class="text-white text-xl" for="avatar">Age</label>
         <input
           v-model="age"
           id="age"
@@ -31,7 +39,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
         />
 
-        <label class="text-white" for="avatar">Height</label>
+        <label class="text-white text-xl" for="avatar">Height</label>
         <input
           v-model="height"
           id="height"
@@ -39,47 +47,30 @@
           class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
         />
 
-        <label class="text-white" for="avatar">Weight</label>
-        <label class="text-white" for="avatar"
-          ><i class="fas fa-weight-hanging"></i
-        ></label>
+        <label class="text-white text-xl" for="weight">Weight</label>
         <input
           v-model="weight"
           id="weight"
           type="number"
           class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
         />
-
-        <!-- <input
-          type="email"
-          v-model="email"
-          class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white mt-10"
-          name="myEmail"
-          placeholder="Email"
-          required
-        />
-
-        <input
-          type="password"
-          v-model="password"
-          class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white"
-          name="password"
-          placeholder="Password"
-        /> -->
-        <!-- <input 
-                        type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="confirm_password"
-                        placeholder="Confirm Password" /> -->
       </div>
-      <div class="flex flex-col">
+      <div class="flex flex-row">
         <button
           type="submit"
           @click="createProfile"
-          class="w-full md:w-2/4 m-auto text-center py-3 rounded-2xl light-blue-bg dark-blue-text font-bold hover:bg-green-dark focus:outline-none my-1 text-xl"
+          class="w-full md:w-2/4 m-auto text-center py-2 mr-2 rounded-2xl light-blue-bg dark-blue-text font-bold hover:bg-green-dark focus:outline-none my-1 text-xl"
         >
-          Create Account
+          Set Up
         </button>
+        <router-link
+          to="/home"
+          type="submit"
+          @click="SkipSetUpProfile"
+          class="w-full md:w-2/4 m-auto text-center py-2 rounded-2xl light-blue-bg dark-blue-text font-bold hover:bg-green-dark focus:outline-none my-1 text-xl skip-router"
+        >
+          Skip
+        </router-link>
       </div>
     </div>
   </div>
@@ -96,11 +87,11 @@ export default {
   data() {
     return {
       userPhoto: {},
-      age: 0,
-      height: 0,
-      weight: 0,
+      age: "",
+      height: "",
+      weight: "",
       avatar: null,
-      avatarSRC: "",
+      avatarSRC: "https://i.ibb.co/dbR1RMq/93-938537-png-file-fa-user-circle-o-transparent-png-removebg-preview.png",
     };
   },
   created() {
@@ -118,6 +109,7 @@ export default {
           })
           .then(() => {
             console.log("Document successfully written!");
+            this.$router.replace("/home");
           })
           .catch((error) => {
             console.error("Error writing document: ", error);
@@ -158,15 +150,15 @@ export default {
           .then(() => {
             console.log("Sucessfully uploaded image");
             if (user) {
-                // display avatar
+              // display avatar
               firebase
                 .storage()
                 .ref("userAvatars/" + user.uid + "/" + this.avatar.name)
                 .getDownloadURL()
                 .then((imgUrl) => {
-                    // Store avarat link in profiles collection
+                  // Store avarat link in profiles collection
                   this.avatarSRC = imgUrl;
-                  console.log(this.avatarSRC); 
+                  console.log(this.avatarSRC);
                   db.collection("profiles")
                     .doc(user.uid)
                     .update({
@@ -181,10 +173,6 @@ export default {
           .catch((error) => {
             console.log(error.message);
           });
-        // let uploadTask = storageRef.put(this.avatar);
-
-        // uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
-        //   console.log("file avaiable at ", downloadURL);
       });
 
       // firebase.auth().onAuthStateChanged((user) => {
@@ -234,5 +222,37 @@ select:-webkit-autofill:focus {
   -webkit-text-fill-color: white;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.custom-file-input::before {
+  content: "Select File";
+  display: flex;
+  background: #25d3ed;
+  //   border: 1px solid #999;
+  border-radius: 20px;
+  padding: 5px 10px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  //   text-shadow: 1px 1px #fff;
+  font-weight: 600;
+  font-size: 20px;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.custom-file-input:hover::before {
+  //   border-color: black;
+}
+.custom-file-input:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+.skip-router {
+  color: #000010 !important;
 }
 </style>

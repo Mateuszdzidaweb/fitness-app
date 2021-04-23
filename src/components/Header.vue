@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full h-14 flex items-center top-0 sticky z-10 top-bar bg-dark-blue px-3 md:h-20"
+    class="w-full h-14 flex items-center top-0 sticky top-bar bg-dark-blue px-3 md:h-20 header"
   >
     <GoBack></GoBack>
     <h1 class="text-2xl md:text-3xl lg:text-4xl text-center route-name-width">
@@ -22,6 +22,9 @@
 
 
 <style>
+.header{
+    z-index: 13 !important;
+}
 .material-icons {
   font-size: 32px !important;
 }

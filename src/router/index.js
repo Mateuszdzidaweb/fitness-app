@@ -164,6 +164,16 @@ const routes = [{
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutDetailsCardio.vue')
     },
     {
+        path: '/goals',
+        name: 'Goals',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: '',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/FitnesGoals.vue')
+    },
+    {
         path: '/food-tracker',
         name: 'Food Tracker',
         meta: {
