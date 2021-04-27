@@ -4,7 +4,7 @@
       <header class="modal-header">
         <slot name="header">
           <!-- <h1 class="text-xl main-blue-font">Edit Profile</h1> -->
-          <button type="button" class="btn-close" @click="closeNameGoalModal">
+          <button type="button" class="btn-close" @click="closeGoalNameModal">
             x
           </button>
           <h1
@@ -32,11 +32,11 @@
         >
           Add Exercise
         </button>
-        <app-AddExerciseModal
+        <!-- <app-AddExerciseModal
           v-show="addExerciseModal"
           @click="closeAddExerciseModal"
           :currentGoalID="currentDocID"
-        ></app-AddExerciseModal>
+        ></app-AddExerciseModal> -->
       </section>
 
       <!-- <footer class="modal-footer">
@@ -58,23 +58,29 @@
 <script>
 import firebase from "firebase";
 let db = firebase.firestore();
-import AddExerciseModal from "@/components/goals-modal/AddExerciseModal.vue";
+// import AddExerciseModal from "@/components/goals-modal/AddExerciseModal.vue";
 export default {
   data() {
     return {
       currentDocID: "null",
       addExerciseModal: false,
+      completed: false,
+      goalName: ''
     };
   },
   components: {
-    appAddExerciseModal: AddExerciseModal,
+    // appAddExerciseModal: AddExerciseModal,
   },
   name: "Modal",
   created() {},
   methods: {
-    closeNameGoalModal() {
-      this.$emit("close");
+    closeNameGoalModalWithID() {
+      this.$emit("closeWithGoalID", this.currentDocID);
       console.log("modal nameGoal closed");
+    },
+    closeGoalNameModal(){
+        this.$emit('close');
+        console.log('modal close');
     },
     closeAddExerciseModal() {
       this.addExerciseModal = false;
@@ -90,11 +96,13 @@ export default {
               .collection("goals")
               .add({
                 goalName: this.goalName,
+                GoalCompleted: this.completed === true,
+                created: firebase.database.ServerValue.TIMESTAMP 
               })
               .then((docRef) => {
                 this.currentDocID = docRef.id;
                 console.log("Created Doc ID is " + this.currentDocID);
-     
+                this.closeNameGoalModalWithID();
               })
               .catch((error) => {
                 console.log(error);
@@ -102,7 +110,6 @@ export default {
           }
         });
       }
-     this.addExerciseModal = true;
     },
   },
 };

@@ -4,32 +4,270 @@
       <header class="modal-header">
         <slot name="header">
           <!-- <h1 class="text-xl main-blue-font">Edit Profile</h1> -->
-          <button type="button" class="btn-close" @click="closeAddExerciseModal">x</button>
+          <button
+            type="button"
+            class="btn-close"
+            @click="closeAddExerciseModal"
+          >
+            x
+          </button>
           <h1
             class="mb-4 text-4xl md:text-5xl text-center main-blue-font font-bold"
           >
             Select Exercise
           </h1>
-          <h1  v-if="currentDocID !== null" class="text-white"> this is current id {{ currentGoalID }}</h1>
+          <h1 v-if="currentDocID !== null" class="text-white">
+            this is current id {{ currentGoalID }}
+          </h1>
         </slot>
       </header>
 
       <section class="modal-body">
-        <div class="px-4 md:w-2/3 center lg:w-2/4">
-          <input
-            v-model="ExerciseName"
-            type="text"
-            class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white mt-10"
-            name="goalName"
-            placeholder="Goal Name ..."
-            required
-          />
+        <div class="px-4 h-auto md:w-2/3 center lg:w-2/4 text-white">
+          <!-- Running -->
+
+          <div class="p-2">
+            <input
+              class=""
+              type="radio"
+              id="running"
+              name="exercise"
+              value="Running"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="running">Running</label><br />
+            <div v-if="selectedExercise == exercise1" class="flex flex-row">
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="number"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-3 ml-10 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="ml-3 text-xl flex items-center">Km</h1>
+            </div>
+          </div>
+
+          <!-- Push Up -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="pushUp"
+              name="exercise"
+              value="Push Up"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="pushUp">Push Up</label><br />
+            <div
+              v-if="selectedExercise == exercise2"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
+
+          <!-- Bench Press -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="benchPress"
+              name="exercise"
+              value="Bench Press"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="benchPress">Bench Press</label
+            ><br />
+            <div
+              v-if="selectedExercise == exercise3"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
+
+          <!-- Pull Up -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="pullUp"
+              name="exercise"
+              value="Pull Up"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="pullUp">Pull Up</label><br />
+            <div
+              v-if="selectedExercise == exercise4"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
+
+          <!-- Shoulder Press -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="shoulderPress"
+              name="exercise"
+              value="Shoulder Press"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="shoulderPress"
+              >Shoulder Press</label
+            ><br />
+            <div
+              v-if="selectedExercise == exercise5"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
+
+          <!-- Deadlift -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="deadLift"
+              name="exercise"
+              value="Deadlift"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="deadLift">Dead Lift</label><br />
+            <div
+              v-if="selectedExercise == exercise6"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
+
+          <!-- Back Squat -->
+          <div class="p-2">
+            <input
+              type="radio"
+              id="backSquat"
+              name="exercise"
+              value="Back Squat"
+              v-model="selectedExercise"
+            />
+            <label class="text-2xl ml-3" for="backSquat">Back Squat</label>
+            <div
+              v-if="selectedExercise == exercise7"
+              class="flex flex-row justify-around"
+            >
+              <input
+                v-model="ExerciseRepsTimeValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 ml-3 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Reps</h1>
+              <input
+                v-model="ExerciseSetsValue"
+                type="text"
+                class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-5 text-center"
+                name="distance"
+                placeholder=""
+                required
+              />
+              <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+          </div>
         </div>
+        <h1 class="text-white">Selected exercise is {{ selectedExercise }}</h1>
         <button
           @click="addExercise"
           class="h-10 m-auto text-center mt-7 px-10 text-xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
         >
-         Select
+          Select
         </button>
       </section>
 
@@ -54,10 +292,19 @@
 let db = firebase.firestore();
 import firebase from "firebase";
 export default {
-    props: ['currentGoalID'],
+  props: ["currentGoalID"],
   data() {
     return {
-        ExerciseName: '',
+      ExerciseRepsTimeValue: null,
+      ExerciseSetsValue: null,
+      exercise1: "Running",
+      exercise2: "Push Up",
+      exercise3: "Bench Press",
+      exercise4: "Pull Up",
+      exercise5: "Shoulder Press",
+      exercise6: "Deadlift",
+      exercise7: "Back Squat",
+      selectedExercise: null,
     };
   },
   methods: {
@@ -65,20 +312,32 @@ export default {
       this.$emit("close");
       console.log("modal AddExerciseModal closed");
     },
-    addExercise(){
-        firebase.auth().onAuthStateChanged((user) =>{
-            db.collection('userGoals')
+    closeAndOpenNextModal() {
+      this.$emit("closeAndOpenNextModal");
+    },
+    addExercise() {
+      event.preventDefault();
+
+      firebase.auth().onAuthStateChanged((user) => {
+        if (this.selectedExercise !== null) {
+          db.collection("userGoals")
             .doc(user.uid)
-            .collection('goals')
+            .collection("goals")
             .doc(this.currentGoalID)
             .update({
-                ExerciseName: this.ExerciseName
+              ExerciseName: this.selectedExercise,
+              ExerciseRepsTimeValue: this.ExerciseRepsTimeValue,
+              ExerciseSetsValue: this.ExerciseSetsValue,
             })
             .then(() => {
-                console.log('exercise Added');
-            })
-        })
-    }
+              console.log("exercise Added");
+              this.closeAndOpenNextModal();
+            });
+        } else {
+          alert("You need to select Exercise");
+        }
+      });
+    },
   },
 };
 </script>
@@ -92,12 +351,11 @@ export default {
   left: 0;
   right: 0;
   /* background-color: rgb(0 0 0 / 98%); */
-  background-color: red;
+  background-color: #010124;
   /* background-color: #01012480; */
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
   z-index: 12;
 }
 
@@ -136,12 +394,11 @@ export default {
 
 input {
   background-color: transparent;
+  border: 1px solid white;
   &:active {
     background-color: transparent;
-    border: none;
   }
   &:focus {
-    border: none;
     background: transparent;
   }
   &::after {
@@ -150,5 +407,11 @@ input {
   &::before {
     background: transparent;
   }
+}
+
+input[type="radio"] {
+  border: 0px;
+  width: 10%;
+  height: 1.3em;
 }
 </style>
