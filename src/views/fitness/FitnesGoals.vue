@@ -14,26 +14,26 @@
       v-bind:key="userGoal.id"
       class="goal-box-width m-auto rounded-xl h-auto bg-blue-500 p-1 mt-5"
     >
-      <div @click="DelateGoal">x</div>
+      <div @click="DelateGoal(userGoal.id)">x</div>
       <div>
         <h1 class="text-white text-xl p-2 font-bold">
-          {{ userGoal.goalName }}
+          {{ userGoal.data().goalName }}
         </h1>
       </div>
       <div class="flex flex-row">
-        <h1 class="text-white text-xl p-2">{{ userGoal.ExerciseName }}</h1>
+        <h1 class="text-white text-xl p-2">{{ userGoal.data().ExerciseName }}</h1>
       </div>
       <div class="flex flex-row justify-between">
         <h1 class="text-white text-xl p-2">
-          {{ userGoal.ExerciseRepsTimeValue }} Reps
+          {{ userGoal.data().ExerciseRepsTimeValue }} Reps
         </h1>
         <h1 class="text-white text-xl p-2">
-          {{ userGoal.ExerciseSetsValue }} Sets
+          {{ userGoal.data().ExerciseSetsValue }} Sets
         </h1>
       </div>
       <div class="">
         <p class="text-white text-md p-2 text-justify">
-          {{ userGoal.GoalInstructions }}
+          {{ userGoal.data().GoalInstructions }}
         </p>
       </div>
     </div>
@@ -121,16 +121,46 @@ export default {
     getAllUserGoals() {
       firebase.auth().onAuthStateChanged((user) => {
         if (user) {
+          //   db.collection("userGoals")
+          //     .doc(user.uid)
+          //     .collection("goals")
+          //     .orderBy("created")
+          //     .get()
+          //     .then((querySnapshot) => {
+          //       this.userGoals = querySnapshot.docs.map((doc) => doc.data());
+          //       console.log(this.userGoals);
+          //       // do something with documents
+          //     });
+
+          //   db.collection("userGoals")
+          //     .doc(user.uid)
+          //     .collection("goals")
+          //     .orderBy("created")
+          //     .onSnapshot((doc) => {
+          //       this.userGoals = doc.data();
+          //       console.log(this.userGoals);
+          //     });
+
           db.collection("userGoals")
             .doc(user.uid)
             .collection("goals")
             .orderBy("created")
-            .get()
-            .then((querySnapshot) => {
-              this.userGoals = querySnapshot.docs.map((doc) => doc.data());
+            .onSnapshot((querySnapshot) => {
+              this.userGoals = [];
+              querySnapshot.forEach((doc) => {
+                this.userGoals.push(doc);
+              });
               console.log(this.userGoals);
-              // do something with documents
             });
+
+          // .then((querySnapshot) => {
+          //   querySnapshot.forEach((doc) => {
+          //     // doc.data() is never undefined for query doc snapshots
+          //     // console.log(doc.id, " => ", doc.data());
+          //     this.userGoals.push(doc);
+          //     console.log(this.userGoals)
+          //   });
+          // });
 
           // Mapp
           // db.collection("userGoals").doc(user.uid).collection('goals')
@@ -147,18 +177,19 @@ export default {
         }
       });
     },
-    // DelateGoal() {
-    //     firebase.auth().onAuthStateChanged((user) =>{
-    //         if(user){
-    //             db.collection('userGoals')
-    //             .doc(user.uid)
-    //             .collection('goals')
-    //             .doc(id)
-    //             .delete()
-    //         }
-    //     })
-    //   console.log("delete");
-    // },
+    DelateGoal(doc) {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("userGoals")
+            .doc(user.uid)
+            .collection("goals")
+            .doc(doc)
+            .delete();
+          console.log("delete goal with ID: ");
+          alert(doc);
+        }
+      });
+    },
   },
 };
 </script>
