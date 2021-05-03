@@ -1,12 +1,12 @@
 <template>
   <div class="modal-add-exercise">
     <div class="modal w-full h-full flex flex-col justify-center">
-      <header class="modal-header">
+      <header class="modal-header-add-own-exercise">
         <slot name="header">
           <!-- <h1 class="text-xl main-blue-font">Edit Profile</h1> -->
           <button
             type="button"
-            class="btn-close"
+            class="btn-close-add-own-exercise-modal"
             @click="closeAddExerciseModal"
           >
             x
@@ -16,17 +16,64 @@
           >
             Select Exercise
           </h1>
-          <h1 v-if="currentDocID !== null" class="text-white">
-            this is current id {{ currentGoalID }}
-          </h1>
         </slot>
       </header>
 
-      <section class="modal-body">
+      <section class="modal-body-add-own-exercise">
         <div class="px-4 h-auto md:w-2/3 center lg:w-2/4 text-white">
+          <div class="px-4 md:w-2/3 center lg:w-2/4">
+            <input
+              v-model="OwnExerciseGoalName"
+              type="text"
+              class="block border-b-2 border-white w-full p-3 rounded mb-4 text-2xl text-white mt-10"
+              name="goalName"
+              placeholder="Goal Name ..."
+              required
+            />
+          </div>
+
+          <div class="px-4 md:w-2/3 center lg:w-2/4">
+            <textarea
+              v-model="OwnExerciseDescription"
+              type="text"
+              class="block border-b-2 border-white w-full p-3 rounded mb-4 text-xl h-50 text-white mt-10 h-40"
+              name="goalinstructions"
+              placeholder="Goal Instructions ..."
+              maxlength="50"
+            />
+          </div>
+
+            <div
+            class="flex flex-row justify-around mt-5">
+            <h1 class="text-xl flex items-center">Reps</h1>
+            <h1 class="text-xl flex items-center">Sets</h1>
+            </div>
+
+          <div
+            class="flex flex-row justify-around"
+          >
+            <input
+              v-model="OwnExerciseRepsValue"
+              type="number"
+              class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-2 ml-3 text-center"
+              name="distance"
+              placeholder=""
+              required
+            />
+          
+            <input
+              v-model="OwnExerciseSetsValue"
+              type="number"
+              class="block border-1 border-white w-20 p-1 rounded mb-4 text-2xl text-white mt-2 text-center"
+              name="distance"
+              placeholder=""
+              required
+            />
+          </div>
+
           <!-- Running -->
 
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               class=""
               type="radio"
@@ -47,10 +94,10 @@
               />
               <h1 class="ml-3 text-xl flex items-center">Km</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Push Up -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="pushUp"
@@ -82,10 +129,10 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Bench Press -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="benchPress"
@@ -118,10 +165,10 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Pull Up -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="pullUp"
@@ -153,10 +200,10 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Shoulder Press -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="shoulderPress"
@@ -190,10 +237,10 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Deadlift -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="deadLift"
@@ -225,10 +272,10 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
 
           <!-- Back Squat -->
-          <div class="p-2">
+          <!-- <div class="p-2">
             <input
               type="radio"
               id="backSquat"
@@ -260,14 +307,13 @@
               />
               <h1 class="text-xl flex items-center">Sets</h1>
             </div>
-          </div>
+          </div> -->
         </div>
-        <h1 class="text-white">Selected exercise is {{ selectedExercise }}</h1>
         <button
           @click="addExercise"
           class="h-10 m-auto text-center mt-7 px-10 text-xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
         >
-          Select
+          Add
         </button>
       </section>
 
@@ -295,16 +341,16 @@ export default {
   props: ["currentGoalID"],
   data() {
     return {
-      ExerciseRepsTimeValue: null,
-      ExerciseSetsValue: null,
-      exercise1: "Running",
-      exercise2: "Push Up",
-      exercise3: "Bench Press",
-      exercise4: "Pull Up",
-      exercise5: "Shoulder Press",
-      exercise6: "Deadlift",
-      exercise7: "Back Squat",
-      selectedExercise: null,
+    //   ExerciseRepsTimeValue: null,
+    //   ExerciseSetsValue: null,
+      //   exercise1: "Running",
+      //   exercise2: "Push Up",
+      //   exercise3: "Bench Press",
+      //   exercise4: "Pull Up",
+      //   exercise5: "Shoulder Press",
+      //   exercise6: "Deadlift",
+      //   exercise7: "Back Squat",
+      //   selectedExercise: null,
     };
   },
   methods: {
@@ -325,13 +371,14 @@ export default {
             .collection("goals")
             .doc(this.currentGoalID)
             .update({
-              ExerciseName: this.selectedExercise,
-              ExerciseRepsTimeValue: this.ExerciseRepsTimeValue,
-              ExerciseSetsValue: this.ExerciseSetsValue,
+              OwnExerciseGoalName: this.OwnExerciseGoalName,
+              OwnExerciseDescription: this.OwnExerciseDescription,
+              OwnExerciseRepsValue: this.OwnExerciseRepsValue,
+              OwnExerciseSetsValue: this.OwnExerciseSetsValue,
             })
             .then(() => {
               console.log("exercise Added");
-              this.closeAndOpenNextModal();
+             this.$router.push('/goals');
             });
         } else {
           alert("You need to select Exercise");
@@ -361,18 +408,12 @@ export default {
 
 /* .wrap iframe{opacity:0;} */
 
-.modal-footer {
-  border-top: 1px solid #eeeeee;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.modal-body {
+.modal-body-add-own-exercise {
   position: relative;
   /* border-bottom: 1px solid #eeeeee; */
 }
 
-.btn-close {
+.btn-close-add-own-exercise-modal {
   position: absolute;
   top: 50px;
   right: 0;
@@ -409,9 +450,9 @@ input {
   }
 }
 
-input[type="radio"] {
-  border: 0px;
-  width: 10%;
-  height: 1.3em;
-}
+// input[type="radio"] {
+//   border: 0px;
+//   width: 10%;
+//   height: 1.3em;
+// }
 </style>

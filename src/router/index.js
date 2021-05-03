@@ -174,6 +174,26 @@ const routes = [{
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/FitnesGoals.vue')
     },
     {
+        path: '/my-goal/:id',
+        name: 'My Goal',
+        props: true,
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: '',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/UserSingleGoal.vue')
+    },    {
+        path: '/goals-completed',
+        name: 'Goals Completed',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: '',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/GoalsCompleted.vue')
+    },
+    {
         path: '/food-tracker',
         name: 'Food Tracker',
         meta: {

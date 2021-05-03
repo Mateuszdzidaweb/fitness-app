@@ -29,6 +29,7 @@
             </p>
           </div>
           <button
+            @click="AddToMyGoals"
             class="p-4 rounded-full transition ease-in duration-200 focus:outline-none btn-add-workout light-blue-bg"
           >
             <svg
@@ -91,7 +92,7 @@
           <span class="flex flex-row">
             <h1 class="gray-text-color text-md md:text-2xl py-2">Equipment:</h1>
             <h1 class="text-white text-md md:text-2xl py-2 ml-2">
-              {{ workout.equipment }}
+              {{ workout.duration }}
             </h1>
           </span>
           <span class="flex flex-row">
@@ -122,6 +123,25 @@
         >
           Start Workout
         </div>
+
+        <app-NameGoalModal
+          v-show="isGoalNameModalVisible"
+          @closeWithGoalID="TrigerAddExercise($event)"
+          @close="closeGoalNameModal"
+          :workoutID="workout.id"
+          :workoutTitle="workout.title"
+          :workoutImage="workout.image"
+          :workoutDetails="this.workout"
+          :workoutDuration="workout.duration"
+          :workoutVideoURL="workout.videoURL"
+        ></app-NameGoalModal>
+
+        <app-AddOwnExerciseModal
+          v-show="isAddOwnExerciseModalVisible"
+          :currentGoalID="currentDocID"
+          @close="closeAddOwnExerciseModal"
+        ></app-AddOwnExerciseModal>
+
         <WorkoutVideoModal
           v-show="isModalVisible"
           @close="closeModal"
@@ -136,6 +156,8 @@
 
 <script>
 import WorkoutVideoModal from "@/components/WorkoutVideoModal.vue";
+import NameGoalModal from "@/components/goals-modal/Name-goalModal.vue";
+import AddOwnExerciseModal from "@/components/goals-modal/AddOwnExerciseModal.vue";
 
 const axios = require("axios");
 
@@ -144,16 +166,23 @@ export default {
   data() {
     return {
       workout: null,
+      isGoalNameModalVisible: false,
       isModalVisible: false,
+      isAddOwnExerciseModalVisible: false,
+      currentDocID: "",
     };
   },
   components: {
     WorkoutVideoModal,
+    appNameGoalModal: NameGoalModal,
+    appAddOwnExerciseModal: AddOwnExerciseModal,
   },
   mounted() {
     axios
       .get(
-        "https://fintess-app-863f3-default-rtdb.firebaseio.com/workouts/" + this.id  + ".json"
+        "https://fintess-app-863f3-default-rtdb.firebaseio.com/workouts/" +
+          this.id +
+          ".json"
       )
       .then((response) => {
         this.workout = response.data;
@@ -169,6 +198,23 @@ export default {
     },
     closeModal() {
       this.isModalVisible = false;
+    },
+    closeGoalNameModal() {
+      this.isGoalNameModalVisible = false;
+      console.log("dsadsd");
+    },
+    AddToMyGoals() {
+      this.isGoalNameModalVisible = true;
+      console.log("add wokout to my goals " + this.id);
+    },
+    TrigerAddExercise(currentDocID) {
+      this.currentDocID = currentDocID;
+      this.isGoalNameModalVisible = false;
+      console.log("ID past to parent " + this.currentDocID);
+      this.isAddOwnExerciseModalVisible = true;
+    },
+    closeAddOwnExerciseModal() {
+      this.isAddOwnExerciseModalVisible = false;
     },
   },
 };

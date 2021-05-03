@@ -4,11 +4,14 @@
 
     <div class="flex flex-row justify-around my-5 text-white">
       <div>
-        <router-link to="/goals" class="text-xl">All</router-link>
+        <router-link to="/goals"
+        class="text-xl"
+        >All</router-link>
       </div>
       <div>
-        <router-link to="/goals-completed" @click.prevent="DelateGoal(userGoal.id)" class="text-xl" 
-          >Completed</router-link>
+       <router-link to="/goals-completed"
+       class="text-xl"
+       >Completed</router-link>
       </div>
     </div>
 
@@ -18,7 +21,6 @@
     >
       <h1 class="text-white text-2xl">Currently you have no goals</h1>
     </div>
-    
 
     <div
       v-for="userGoal in userGoals"
@@ -26,7 +28,7 @@
       class="goal-box-width m-auto rounded-xl h-auto"
     >
     <button class="delete-goal text-2xl font-bold text-white" @click="DelateGoal(userGoal.id)">x</button>
-
+    
       <router-link
         :to="{ name: 'My Goal', params: { id: userGoal.data().goalID } }"
         class="m-auto rounded-xl h-auto bg-blue-500 p-1 mt-5 goal-image-bg block"
@@ -40,14 +42,6 @@
       >
         <div class="relative right -top-1 left-0 -mt-3 mr-3 w-28">
           <div
-            v-if="userGoal.data().GoalCompleted == false"
-            class="rounded-full bg-gray-500 text-white text-xs py-1 pl-2 pr-3 leading-none"
-          >
-            <i class="mdi mdi-fire text-base align-middle"></i>
-            <span class="align-middle uncompleated-ml font-bold text-sm">Uncompleted</span>
-          </div>
-          <div
-            v-if="userGoal.data().GoalCompleted == true"
             class="rounded-full bg-green-500 text-white text-xs py-1 pl-2 pr-3 leading-none"
           >
             <i class="mdi mdi-fire text-base align-middle"></i>
@@ -220,7 +214,8 @@ export default {
           db.collection("userGoals")
             .doc(user.uid)
             .collection("goals")
-            .orderBy("created")
+             .orderBy('GoalCompletedDate')
+            .where("GoalCompleted", "==", true)
             .onSnapshot((querySnapshot) => {
               this.userGoals = [];
               querySnapshot.forEach((doc) => {
@@ -256,21 +251,18 @@ export default {
         }
       });
     },
-    DelateGoal(event) {
-        
-    //   firebase.auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //       db.collection("userGoals")
-    //         .doc(user.uid)
-    //         .collection("goals")
-    //         .doc(doc)
-    //         .delete();
-    //       console.log("delete goal with ID: ");
-    //       alert(doc);
-    //     }
-    //   });
-    alert('deleted');
-        event.stopPropagation();
+    DelateGoal(doc) {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("userGoals")
+            .doc(user.uid)
+            .collection("goals")
+            .doc(doc)
+            .delete();
+          console.log("delete goal with ID: ");
+          alert(doc);
+        }
+      });
     },
   },
 };
@@ -293,10 +285,6 @@ export default {
   right: 15px;
   top: 25px;
   font-size: 20px;
-}
-
-.uncompleated-ml {
-  margin-left: 0.1rem;
 }
 
 .goal-image-bg {
