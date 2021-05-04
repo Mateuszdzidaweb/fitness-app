@@ -40,14 +40,42 @@
             />
           </span>
           <h1 class="p-5 font-medium dark-text-color md:text-4xl">Exercises</h1>
+
+          <circle-progress
+            :percent="progressBarValue"
+            :transition="2000"
+            fill-color="#010124"
+            class="goal-progress-bar"
+            :is-bg-shadow="false"
+            :bg-shadow="{
+              inset: false,
+              vertical: 2,
+              horizontal: 2,
+              blur: 0,
+              opacity: 0.4,
+              color: '#000000',
+              percent: 10,
+            }"
+            empty-color="#f7f7f7"
+            :border-width="18"
+            :border-bg-width="20"
+            :gradient="{
+              angle: 90,
+            }"
+          />
+          <div>
+            <h1 class="absolute top-14 right-20 text-black text-4xl">
+              {{ numberOfGoalsCompleted }}
+            </h1>
+            <h1 class="absolute top-16 right-16 text-black text-4xl">/</h1>
+            <h1 class="absolute top-20 right-10 text-black text-3xl">
+              {{ numberOfAllGoals }}
+            </h1>
+          </div>
         </swiper-slide>
         <swiper-slide class="slider-home slider2 diet-bg-color">
           <span class="w-20 h-auto top-4 absolute md:w-32">
-            <img
-              class="ml-5 transform-rotate"
-              src="../assets/nav-icons/diet.svg"
-              alt=""
-            />
+            <img class="ml-5" src="../assets/nav-icons/diet.svg" alt="" />
           </span>
           <h1 class="p-5 font-medium dark-text-color md:text-4xl">Diet</h1>
         </swiper-slide>
@@ -60,10 +88,10 @@
 </template>
 <script>
 // Import Swiper Vue.js components
+import CircleProgress from "vue3-circle-progress";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import firebase from "firebase";
 let db = firebase.firestore();
-require("firebase/firestore");
 import "firebase/storage";
 // import { fb, db } from "../assets/js/AuthConfig";
 // Import Swiper styles
@@ -75,6 +103,9 @@ export default {
       avatarSRC: "no avatar",
       user: null,
       logedinUser: null,
+      numberOfGoalsCompleted: 0,
+      numberOfAllGoals: 0,
+      progressBarValue: 0,
       swiperOption: {
         slidesPerView: "auto",
         spaceBetween: 20,
@@ -89,6 +120,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    CircleProgress,
   },
   //   firestore(){
   //       const user = fb.auth().currentUser;
@@ -98,6 +130,9 @@ export default {
   //   },
   created() {
     this.getUsername();
+    this.getNumberOfCompletedGoal();
+    this.getNumberOfAllGoals();
+    this.countGoalProgresBar();
   },
   methods: {
     getUsername() {
@@ -128,6 +163,41 @@ export default {
       //       this.profile = null;
       //     }
       //   });
+    },
+    getNumberOfCompletedGoal() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("userGoals")
+            .doc(user.uid)
+            .collection("goals")
+            .where("GoalCompleted", "==", true)
+            .onSnapshot((querySnapshot) => {
+              this.numberOfGoalsCompleted = querySnapshot.docs.length;
+              console.log(this.numberOfGoalsCompleted);
+            });
+        }
+      });
+    },
+    getNumberOfAllGoals() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("userGoals")
+            .doc(user.uid)
+            .collection("goals")
+            .onSnapshot((querySnapshot) => {
+              this.numberOfAllGoals = querySnapshot.docs.length;
+              console.log(this.numberOfAllGoals);
+            });
+        }
+      });
+    },
+    countGoalProgresBar() {
+      // let progressBarValue = 10;
+      setTimeout(() => {
+        this.progressBarValue =
+          (100.0 * this.numberOfGoalsCompleted) / this.numberOfAllGoals;
+        console.log(this.progressBarValue);
+      }, 200);
     },
 
     // getUserAvatar(){
@@ -205,10 +275,19 @@ export default {
     width: 40%;
   } */
 
+.transform-rotate {
+  transform: rotate(-45deg);
+}
+
 .swiper-slide-active {
   transition: transform 0.2s;
   animation: ease-in-out;
   transform: scale(1);
   border-radius: 10px;
+}
+
+.goal-progress-bar > svg {
+  margin-top: 25px;
+  margin-right: 10px;
 }
 </style>

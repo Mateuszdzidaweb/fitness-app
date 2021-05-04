@@ -6,9 +6,9 @@
         class="block rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 nav-blue-bg"
         :style="{
           background:
-            'linear-gradient(rgb(0 22 70 / 70%), rgb(0 20 70 / 30%)), url(' +
-            require('../assets/fitness-img/goals-nav-img2.png') +
-            ') top no-repeat',
+            'linear-gradient(rgb(0 22 70 / 0%), rgba(0, 20, 70, 0.3)), url(' +
+            require('../assets/fitness-img/goals-nav-img.png') +
+            ') right top no-repeat',
         }"
       >
         <div class="flex flex-row justify-between">
@@ -28,9 +28,9 @@
         class="block rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 nav-blue-bg"
         :style="{
           background:
-            'linear-gradient(rgb(0 22 70 / 70%), rgb(0 20 70 / 30%)), url(' +
-            require('../assets/fitness-img/workout-session-nav-img.png') +
-            ') ',
+            'linear-gradient(rgb(0 22 70 / 0%), rgba(0, 20, 70, 0.3)), url(' +
+            require('../assets/fitness-img/workout-session-icon.png') +
+            ') right no-repeat',
         }"
       >
         <div class="flex flex-row justify-between">
@@ -50,9 +50,9 @@
         class="block rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 nav-blue-bg"
         :style="{
           background:
-            'linear-gradient(rgb(0 22 70 / 70%), rgb(0 20 70 / 30%)), url(' +
-            require('../assets/fitness-img/workout-tips-nav-img.png') +
-            ')',
+            'linear-gradient(rgb(0 22 70 / 0%), rgba(0, 20, 70, 0.3)), url(' +
+            require('../assets/fitness-img/workout-tips-icon.png') +
+            ') right no-repeat',
         }"
       >
         <div class="flex flex-row justify-between">
@@ -72,9 +72,9 @@
         class="block rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 nav-blue-bg"
         :style="{
           background:
-            'linear-gradient(rgb(0 22 70 / 70%), rgb(0 20 70 / 30%)), url(' +
-            require('../assets/fitness-img/calories-burner-nav-img.png') +
-            ') center center',
+            'linear-gradient(rgb(0 22 70 / 0%), rgba(0, 20, 70, 0.3)), url(' +
+            require('../assets/fitness-img/calories-burner-icon3.png') +
+            ') right no-repeat',
         }"
       >
         <div class="flex flex-row justify-between">

@@ -256,21 +256,20 @@ export default {
         }
       });
     },
-    DelateGoal(event) {
+    DelateGoal(doc) {
         
-    //   firebase.auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //       db.collection("userGoals")
-    //         .doc(user.uid)
-    //         .collection("goals")
-    //         .doc(doc)
-    //         .delete();
-    //       console.log("delete goal with ID: ");
-    //       alert(doc);
-    //     }
-    //   });
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          db.collection("userGoals")
+            .doc(user.uid)
+            .collection("goals")
+            .doc(doc)
+            .delete();
+          console.log("delete goal with ID: ");
+          alert(doc);
+        }
+      });
     alert('deleted');
-        event.stopPropagation();
     },
   },
 };
