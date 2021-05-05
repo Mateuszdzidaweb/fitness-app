@@ -88,6 +88,7 @@
                 </svg>
               </div>
             </header>
+             <collapse-transition>
             <div v-show="isOpenAccordion1">
               <div class="px-3 pb-5 text-grey-darkest">
                 <ul class="py-2">
@@ -107,6 +108,7 @@
                 ></div>
               </div>
             </div>
+             </collapse-transition>
           </div>
         </article>
 
@@ -325,6 +327,7 @@
 
 
 <script>
+ import { CollapseTransition } from "@ivanv/vue-collapse-transition"
 const axios = require("axios");
 export default {
   props: ["id"],
@@ -340,6 +343,9 @@ export default {
       isOpenAccordion4: false,
       workoutTip: null,
     };
+  },
+  component: {
+      CollapseTransition,
   },
   mounted() {
     axios
