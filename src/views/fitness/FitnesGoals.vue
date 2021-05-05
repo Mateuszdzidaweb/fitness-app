@@ -7,7 +7,7 @@
         <router-link to="/goals" class="text-xl">All</router-link>
       </div>
       <div>
-        <router-link to="/goals-completed" @click.prevent="DelateGoal(userGoal.id)" class="text-xl" 
+        <router-link to="/goals-completed" class="text-xl" 
           >Completed</router-link>
       </div>
     </div>

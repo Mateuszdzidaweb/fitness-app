@@ -155,6 +155,72 @@
             "videoURL": "https://www.youtube.com/embed/AoxJBoRNFGU"
         }
 
+    ],
+    "workoutTips": [{
+            "id": 0,
+            "title": "Upper Body",
+            "subtitle": "Tips to Drive Better Upper Body Gains",
+            "tip1Title": "Include Dumbbell Pullovers in Your Chest Routine",
+            "tip1Description": "This is one of the more effective compound movements that will work your chest (especially the lower portion), lats and ribcage. Proper form is essential for pullovers, as any swinging motion will lessen your range of motion and take out the engagement of the secondary muscles needed to complete the rep properly.",
+            "tip2Title": "Always Do Bent Over Rows",
+            "tip2Description": "If you want barn door lats, then bet over rows should be part of your back routine each and every time. You can change things up by using a barbell or dumbbells, an overhand or underhand grip on the bar, or even a Smith machine. No matter what form of this exercise you choose to do, it will be by far the one that will make or break your lat growth.",
+            "tip3Title": "Single-Sided Back Exercises",
+            "tip3Description": "Most movements for your lats are done with a bar or on a machine with both hands working simultaneously. This is good, of course, except that your naturally stronger side (right or left) will be doing the extra work and inadvertently helping out its weaker brother. By introducing some single sided exercises, you will force the weaker one to work just as hard without getting an involuntary.",
+            "tip4Title": "Shorter Rest Periods",
+            "tip4Description": "If you can keep your rest periods a minute or less, then you feel your muscles ready to explode after only a few sets. Doing 12-to-15 strict reps with moderate weight and 45 seconds in between sets will spurn more growth than six sloppy reps with weight that is too heavy for you and then needing three minutes to recuperate for the next set.",
+            "workoutTipImg": "Upper-Body-Tips-img.jpg"
+        },
+        {
+            "id": 1,
+            "title": "Bodyweight Cardio",
+            "subtitle": "Bodyweight cardio tips and instructions",
+            "tip1Title": "Reverse Lunges",
+            "tip1Description": "Start in a standing position with your feet about shoulder-width apart. Step backwards with your left foot, landing on the ball of your left foot and keeping your heel off the ground. Bend your knees creating two 90-degree angles with your legs. Aim to have your back knee hovering about three to six inches off the ground. Push through the heel of your right foot to return to standing. Repeat with your left leg. That's 1 rep, do 15.",
+            "tip1Gif": "BodyWeightCardio-tip1Gif.gif",
+            "tip2Title": "Bodyweight Squats",
+            "tip2Description": "Start standing with feet just slightly wider than shoulder-width apart. Sit your butt back into a squat, without letting your knees go past your toes. Make sure your weight is in your heels, and keep your chest up",
+            "tip2Gif": "BodyWeightCardio-tip2Gif.gif",
+            "tip3Title": "Lateral Plank Walks",
+            "tip3Description": "Start in high plank with shoulders above wrists and abs tight. Step right foot and right hand to right side immediately following with left foot and left hand. That's 1 rep, do 15. (You can do a few reps toward the right, then switch directions.)",
+            "tip3Gif": "BodyWeightCardio-tip3Gif.gif",
+            "tip4Title": "Inchworms",
+            "tip4Description": "Start standing with feet hip-width apart. Hinge forward at your hips and place your palms on the floor, bending your knees as needed to reach. Walk your hands forward so that you're in high plank. Walk your hands back toward feet and stand up. That's 1 rep, do 15.",
+            "tip4Gif": "BodyWeightCardio-tip4Gif.gif",
+            "workoutTipImg": "BodyWeight-Cardio-Tips-img.jpg"
+        },
+        {
+            "id": 2,
+            "title": "Lower Body Strength",
+            "subtitle": "Lower body strength tips and instructions",
+            "tip1Title": "Dumbbell squat",
+            "tip1Description": "Stand with your feet hip to shoulder-width apart, holding a pair of dumbbells at arm’s length by your sides. Keeping your back flat, chest up, and core braced, push your hips back, bend your knees, and lower your body until your thighs are parallel to the floor. Pause, then push yourself back up to the starting position.",
+            "tip1Gif": "LowerBodyStrength-tip1.jpeg",
+            "tip2Title": "Dumbbell goblet squat",
+            "tip2Description": "Hold a dumbbell vertically in front of your chest, cupping the top end in both hands. Stand with your feet hip- to shoulder-width apart. Keeping your back flat and elbows pointed down, push your hips back and lower your body until your thighs are at least parallel to the ground. Pause, and then slowly push yourself back up to the starting position.",
+            "tip2Gif": "LowerBodyStrength-tip2.jpeg",
+            "tip3Title": "Side leg lift with band",
+            "tip3Description": "Wrap a resistance loop around your ankles and lie on your right side, propping yourself up on your right forearm. Keep your legs straight and stacked on top of each other and your toes pointed forward. Lift the top leg, lower, and repeat. Do equal reps on both sides.",
+            "tip3Gif": "LowerBodyStrength-tip3.jpeg",
+            "workoutTipImg": "LowerBodyStrength-Tip-img.jpg"
+        }
+        ,        {
+            "id": 3,
+            "title": "Total Body Kettlebell",
+            "subtitle": "Kettlebell exercise tips and techniques",
+            "tip1Title": "Kettlebell Romanian deadlift",
+            "tip1Description": "Stand with feet shoulder-width apart. Grab a kettlebell with an overhand grip and straighten your arms. Bend knees slightly and send hips back, hinging at hips. Drive your feet into the floor and stand, like you’re pushing the floor away. Repeat.",
+            "tip1Gif": "TotalBodyKettlebell-tip1Gif.gif",
+            "tip2Title": "Kettlebell high pull",
+            "tip2Description": "Place the kettlebell in front of you. Start in a squat position and grab the kettlebell with an overhand grip using both hands. Explosively drive upward. As you stand, bring the kettlebell under your chin and lift elbows above shoulders. Return to a squat position and repeat.",
+            "tip2Gif": "TotalBodyKettlebell-tip2Gif.gif",
+            "tip3Title": "Kettlebell front squat",
+            "tip3Description": "Grab the kettlebell with your right hand. Straighten left arm out to the side for balance. Start in a low squat position. Engage your core, then stand straight up. This kettlebell classic may seem easy, but just wait until you’re 10 reps in.",
+            "tip3Gif": "TotalBodyKettlebell-tip3Gif.gif",
+            "tip4Title": "Kettlebell renegade row",
+            "tip4Description": "Place two kettlebells shoulder-width apart on the floor. Start in a push-up position, with hands gripping the kettlebell handles. Keep arms straight and make sure wrists are facing one another. Lift right hand off the floor, gripping the kettlebell and drawing elbow back behind you. Return the kettlebell to the floor and do a push-up. Repeat on the other side.",
+            "tip4Gif": "TotalBodyKettlebell-tip4Gif.gif",
+            "workoutTipImg": "TotalBodyKettlebell-Tips-img.jpg"
+        }
     ]
 
 }

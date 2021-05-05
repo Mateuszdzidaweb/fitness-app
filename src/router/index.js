@@ -183,7 +183,8 @@ const routes = [{
             description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/UserSingleGoal.vue')
-    },    {
+    }, 
+    {
         path: '/goals-completed',
         name: 'Goals Completed',
         meta: {
@@ -192,6 +193,27 @@ const routes = [{
             description: '',
         },
         component: () => import( /* webpackChunkName: "about" */ '../views/fitness/GoalsCompleted.vue')
+    },
+    {
+        path: '/workout-tips',
+        name: 'Workout Tips',
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: '',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/WorkoutTips.vue')
+    },
+    {
+        path: '/workout-tip/:id',
+        name: 'Workout Tip',
+        props: true,
+        meta: {
+            header_text: 'Sign Up to our cats',
+            title: 'Sign Up Page',
+            description: '',
+        },
+        component: () => import( /* webpackChunkName: "about" */ '../views/fitness/SingleWorkoutTip.vue')
     },
     {
         path: '/food-tracker',

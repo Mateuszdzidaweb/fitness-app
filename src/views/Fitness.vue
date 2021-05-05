@@ -46,7 +46,7 @@
 
     <div class="mb-5 mt-5 md:w-2/3 m-auto">
       <router-link
-        to="/"
+        to="/workout-tips"
         class="block rounded-lg relative p-5 transform transition-all duration-300 scale-100 hover:scale-95 nav-blue-bg"
         :style="{
           background:

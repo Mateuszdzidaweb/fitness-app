@@ -194,8 +194,13 @@ export default {
     countGoalProgresBar() {
       // let progressBarValue = 10;
       setTimeout(() => {
-        this.progressBarValue =
-          (100.0 * this.numberOfGoalsCompleted) / this.numberOfAllGoals;
+        if (this.numberOfAllGoals !== 0) {
+          this.progressBarValue =
+            (100.0 * this.numberOfGoalsCompleted) / this.numberOfAllGoals;
+        }else{
+            this.progressBarValue = 0;
+        }
+
         console.log(this.progressBarValue);
       }, 200);
     },
