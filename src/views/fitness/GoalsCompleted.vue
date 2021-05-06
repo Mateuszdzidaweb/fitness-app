@@ -1,17 +1,15 @@
 <template>
-  <div class="flex flex-col h-full mb-52">
+  <div class="flex flex-col md:flex-wrap h-full mb-52">
     <!-- <h1 class="text-white m-auto">Goals</h1> -->
 
     <div class="flex flex-row justify-around my-5 text-white">
       <div>
-        <router-link to="/goals"
-        class="text-xl"
-        >All</router-link>
+        <router-link to="/goals" class="text-xl md:text-3xl">All</router-link>
       </div>
       <div>
-       <router-link to="/goals-completed"
-       class="text-xl"
-       >Completed</router-link>
+        <router-link to="/goals-completed" class="text-xl md:text-3xl"
+          >Completed</router-link
+        >
       </div>
     </div>
 
@@ -27,11 +25,16 @@
       v-bind:key="userGoal.id"
       class="goal-box-width m-auto rounded-xl h-auto"
     >
-    <button class="delete-goal text-2xl font-bold text-white" @click="DelateGoal(userGoal.id)">x</button>
-    
+      <button
+        class="delete-goal text-2xl font-bold text-white"
+        @click="DelateGoal(userGoal.id)"
+      >
+        x
+      </button>
+
       <router-link
         :to="{ name: 'My Goal', params: { id: userGoal.data().goalID } }"
-        class="m-auto rounded-xl h-auto bg-blue-500 p-1 mt-5 goal-image-bg block"
+        class="m-auto rounded-xl h-auto md:h-60 p-1 mt-5 goal-image-bg block"
         :style="{
           background:
             'linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 29)), url(' +
@@ -42,25 +45,38 @@
       >
         <div class="relative right -top-1 left-0 -mt-3 mr-3 w-28">
           <div
-            class="rounded-full bg-green-500 text-white text-xs py-1 pl-2 pr-3 leading-none"
+            v-if="userGoal.data().GoalCompleted == false"
+            class="rounded-full bg-gray-500 text-white text-xs py-1 pl-2 pr-3 md:pr-36 leading-none"
           >
             <i class="mdi mdi-fire text-base align-middle"></i>
-            <span class="align-middle ml-2 text-sm font-bold">Completed</span>
+            <span
+              class="align-middle uncompleated-ml font-bold text-sm md:text-xl"
+              >Uncompleted</span
+            >
+          </div>
+          <div
+            v-if="userGoal.data().GoalCompleted == true"
+            class="rounded-full bg-green-500 text-white text-xs py-1 pl-2 pr-3 md:pr-36 leading-none"
+          >
+            <i class="mdi mdi-fire text-base align-middle"></i>
+            <span class="align-middle ml-2 text-sm md:text-xl font-bold"
+              >Completed</span
+            >
           </div>
         </div>
 
         <div>
-          <h1 class="text-white text-xl p-2 font-bold">
+          <h1 class="text-white text-xl md:text-2xl p-2 font-bold">
             {{ userGoal.data().goalName }}
           </h1>
         </div>
         <div class="flex flex-row">
-          <h1 class="text-white text-xl p-2">
+          <h1 class="text-white text-xl md:text-2xl p-2">
             {{ userGoal.data().ExerciseName }}
           </h1>
         </div>
         <div class="flex flex-row justify-between">
-          <h1 class="text-white text-xl p-2">
+          <h1 class="text-white text-xl md:text-2xl p-2">
             {{ userGoal.data().workoutDuration }}
           </h1>
           <h1 class="text-white text-xl p-2">
@@ -69,7 +85,7 @@
         </div>
 
         <div class="">
-          <p class="text-white text-md text-xl p-2 text-justify">
+          <p class="text-white text-md text-xl md:text-2xl p-2 text-justify">
             {{ userGoal.data().workoutTitle }}
           </p>
         </div>
@@ -214,7 +230,8 @@ export default {
           db.collection("userGoals")
             .doc(user.uid)
             .collection("goals")
-             .orderBy('GoalCompletedDate')
+            .orderBy("created")
+            .orderBy("GoalCompletedDate")
             .where("GoalCompleted", "==", true)
             .onSnapshot((querySnapshot) => {
               this.userGoals = [];
@@ -263,6 +280,7 @@ export default {
           alert(doc);
         }
       });
+      alert("deleted");
     },
   },
 };
@@ -287,8 +305,18 @@ export default {
   font-size: 20px;
 }
 
+.uncompleated-ml {
+  margin-left: 0.1rem;
+}
+
 .goal-image-bg {
   background-position: center !important;
   background-size: cover !important;
+}
+
+@media only screen and (min-width: 768px) {
+  .goal-box-width {
+    width: 31rem;
+  }
 }
 </style> 

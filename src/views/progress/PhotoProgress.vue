@@ -30,11 +30,11 @@
     >
       Upload File
     </button> -->
-    <div class="">
+    <div class="flex flex-col md:flex-row md:flex-wrap wrap-photos mb-40">
       <div
         v-for="showUserProgressPhoto in showUserProgressPhotos"
         v-bind:key="showUserProgressPhoto.id"
-        class="w-5/6 h-60 px-3 h-22 m-auto mt-6 bg-color bg-size rounded-xl mb-20"
+        class="w-5/6 md:w-2/5 h-60 px-3 h-22 m-auto mt-6 bg-color bg-size rounded-xl mb-5 min-img-width photo-item"
         :style="{
           backgroundImage:
             'linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 29)), url(' +
@@ -53,7 +53,7 @@
 
         <!-- <div class="p-4 rounded-br-lg rounded-bl-lg card-bg-color "> -->
         <h3
-          class="font-medium text-lg my-2 uppercase text-white text-center upload-date flex self-end"
+          class="font-medium text-lg md:text-2xl my-2 uppercase text-white text-center upload-date flex self-end"
         >
           {{ showUserProgressPhoto.data().uploadDate }}
         </h3>
@@ -108,6 +108,7 @@ export default {
                     .add({
                       progressPhotoURL: this.progressPhotoSRC,
                       uploadDate: this.currentDate,
+                      created: firebase.database.ServerValue.TIMESTAMP,
                     })
                     .then(() => {
                       console.log("Progress Photo url saved to databse");
@@ -124,8 +125,9 @@ export default {
           db.collection("userProgressPhotos")
             .doc(user.uid)
             .collection("progressPhotos")
+            .orderBy("created")
             .onSnapshot((querySnapshot) => {
-                this.showUserProgressPhotos = [];
+              this.showUserProgressPhotos = [];
               querySnapshot.forEach((doc) => {
                 this.showUserProgressPhotos.push(doc);
                 // this.showUserProgressPhoto = doc.data();
@@ -182,6 +184,27 @@ button {
 @media only screen and (min-width: 768px) {
   .upload-icon {
     font-size: 42px !important;
+  }
+
+  .min-img-width {
+    min-width: 40% !important;
+  }
+
+  .wrap-photos {
+    display: flex !important;
+    display: -webkit-flex !important;
+    display: -moz-flex !important;
+    flex-flow: row wrap !important;
+    -webkit-flex-flow: row wrap !important;
+    -moz-flex-flow: row wrap !important;
+  }
+  .photo-item {
+    width: 40%;
+    height: 230px;
+    margin: 20px 5% 20px;
+    margin-top: 40px;
+    background-position: center;
+    background-size: cover;
   }
 }
 </style>

@@ -30,7 +30,11 @@
     </h1>
     <h1></h1>
     <div class="swiper-container h-44 mt-10 md:h-60 flex flex-row">
-      <swiper class="swiper-wrapper-home w-full" :options="swiperOption">
+      <swiper
+        @click="goToGoals"
+        class="swiper-wrapper-home w-full"
+        :options="swiperOption"
+      >
         <swiper-slide class="slider-home ml-5">
           <span class="w-20 h-auto top-4 absolute md:w-32">
             <img
@@ -63,16 +67,25 @@
               angle: 90,
             }"
           />
-          <div>
-            <h1 class="absolute top-14 right-20 text-black text-4xl">
+          <div class="goal-stats">
+            <h1
+              class="absolute top-14 md:top-16 right-20 md:right-28 text-black text-4xl md:text-5xl"
+            >
               {{ numberOfGoalsCompleted }}
             </h1>
-            <h1 class="absolute top-16 right-16 text-black text-4xl">/</h1>
-            <h1 class="absolute top-20 right-10 text-black text-3xl">
+            <h1
+              class="absolute top-16 md:top-20 right-16 md:right-24 text-black text-4xl md:text-5xl"
+            >
+              /
+            </h1>
+            <h1
+              class="absolute top-20 md:top-24 right-10 md:right-16 text-black text-3xl md:text-4xl"
+            >
               {{ numberOfAllGoals }}
             </h1>
           </div>
         </swiper-slide>
+
         <swiper-slide class="slider-home slider2 diet-bg-color">
           <span class="w-20 h-auto top-4 absolute md:w-32">
             <img class="ml-5" src="../assets/nav-icons/diet.svg" alt="" />
@@ -84,6 +97,12 @@
     <h1 class="mt-2 p-5 text-3xl text-center text-white md:py-20 md:text-5xl">
       Achievements
     </h1>
+    <div
+      class="w-3/5 h-10 m-auto text-center mt-7 text-xl light-blue-bg rounded-3xl flex flex-col justify-center font-medium md:w-2/5 md:h-14 md:text-3xl viewAchievementsButton"
+    >
+      View Achievements
+    </div>
+    <div class="h-40"></div>
   </div>
 </template>
 <script>
@@ -135,6 +154,11 @@ export default {
     this.countGoalProgresBar();
   },
   methods: {
+    goToGoals() {
+      this.$router.push({
+        path: "/goals",
+      });
+    },
     getUsername() {
       // Query database in real time
       firebase.auth().onAuthStateChanged((user) => {
@@ -197,8 +221,8 @@ export default {
         if (this.numberOfAllGoals !== 0) {
           this.progressBarValue =
             (100.0 * this.numberOfGoalsCompleted) / this.numberOfAllGoals;
-        }else{
-            this.progressBarValue = 0;
+        } else {
+          this.progressBarValue = 0;
         }
 
         console.log(this.progressBarValue);
@@ -290,9 +314,37 @@ export default {
   transform: scale(1);
   border-radius: 10px;
 }
+.goal-progress-bar {
+  height: 156px !important;
+  width: 180px !important;
+  position: relative;
+  margin-right: 7px !important;
+}
+@media only screen and (min-width: 768px) {
+  .goal-progress-bar {
+    height: 180px !important;
+    width: 180px !important;
+    position: relative;
+    margin-right: 7px !important;
+  }
+  .goal-progress-bar > svg {
+    margin-top: -36px;
+    margin-right: 10px;
+  }
 
-.goal-progress-bar > svg {
-  margin-top: 25px;
-  margin-right: 10px;
+  .goal-progress-bar {
+    right: -200px;
+  }
+
+  .goal-stats {
+    margin-right: 10px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .goal-progress-bar {
+    right: -380px;
+  }
 }
 </style>
+

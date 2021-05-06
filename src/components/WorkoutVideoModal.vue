@@ -3,7 +3,7 @@
     <div class="modal w-full h-full flex flex-col justify-center">
       <header class="modal-header">
         <slot name="header">
-        <h1 class="text-xl main-blue-font">  {{ workoutTitle }} </h1>
+        <h1 class="text-xl md:text-2xl main-blue-font">  {{ workoutTitle }} </h1>
         </slot>
         <button
           type="button"
@@ -19,7 +19,7 @@
 
         
 
-          <iframe class="w-full h-60" width="560" height="315" :src="videoURL" title="YouTube video player" 
+          <iframe class="w-full h-60 md:h-96 " width="560" height="315" :src="videoURL" title="YouTube video player" 
               frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
 

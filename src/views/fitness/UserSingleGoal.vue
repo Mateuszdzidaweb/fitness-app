@@ -1,7 +1,7 @@
 <template>
   <div class="mb-40" v-if="userGoal !== null">
     <iframe
-      class="w-full h-60"
+      class="w-full h-60 md:h-96"
       width="560"
       height="315"
       :src="userGoal.workoutVideoUrl"
@@ -11,7 +11,7 @@
       allowfullscreen
     >
     </iframe>
-
+    <div class="md:w-4/5 md:m-auto">
     <div>
       <h1 class="text-white text-2xl md:text-4xl p-4 py-5 text-center">
         {{ userGoal.goalName }}
@@ -61,6 +61,7 @@
       class="w-3/5 h-10 m-auto text-center mt-7 text-xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
     >
       Goal Completed
+    </div>
     </div>
   </div>
 </template>

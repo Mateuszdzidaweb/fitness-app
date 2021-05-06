@@ -9,7 +9,7 @@
         v-bind:key="workoutTips.id"
     class="mb-5 mt-5">
       <router-link :to="{ name: 'Workout Tip', params: {id: workoutTips.id} }"
-        class="block rounded-lg relative  p-5 transform transition-all duration-300 scale-100 hover:scale-95 w-full h-52"
+        class="block rounded-lg relative  p-5 transform transition-all duration-300 scale-100 hover:scale-95 w-full md:w-4/5 lg:w-3/5 m-auto h-52"
          :style="{
             background:
               'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7)), url(' +
@@ -26,8 +26,8 @@
             <span class="align-middle">New</span>
           </div> -->
         </div>
-        <div class="h-32"></div>
-        <h2 class="text-white text-2xl font-bold leading-tight mb-3 pr-5">
+        <div class="h-32 w-auto"></div>
+        <h2 class="text-white text-2xl font-bold leading-tight mb-3 pr-5 md:w-1/2">
           {{ workoutTips.title }}
         </h2>
         <div

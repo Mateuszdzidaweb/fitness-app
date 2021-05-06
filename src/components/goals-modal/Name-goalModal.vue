@@ -79,13 +79,13 @@
 
         <button
           @click="addToGaols"
-          class="h-10 m-auto text-center mt-7 px-10 text-xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
+          class="h-10 md:h-12 m-auto text-center mt-7 px-10 text-xl md:text-2xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
         >
           Add Goal
         </button>
         <button
           @click="addCurrentAndOwnGoal"
-          class="h-10 m-auto text-center mt-7 px-10 text-xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
+          class="h-10 md:h-12 m-auto text-center mt-7 px-10 text-xl md:text-2xl rounded-3xl flex flex-col justify-center font-medium light-blue-bg"
         >
           Add More
         </button>

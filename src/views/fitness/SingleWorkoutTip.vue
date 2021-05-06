@@ -1,7 +1,7 @@
 <template>
   <div v-if="workoutTip">
     <div
-      class="relative pb-6 w-full h-64 main-bg-color workout-image-bg"
+      class="relative pb-6 w-full h-64 md:h-80 main-bg-color workout-image-bg"
       :style="{
         background:
           'linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 29)), url(' +
@@ -18,24 +18,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="p-5 mb-20">
-      <ol class="text-white p-5 list-decimal text-xl">
-        <li class="text-white text-2xl">{{ workoutTip.tip1Title }}</li>
-        <p class="text-md mt-3">
-          {{ workoutTip.tip1Descrription }}
-        </p>
-        <li class="text-white text-2xl mt-3">{{ workoutTip.tip2Title }}</li>
-        <p class="text-md mt-3">
-          {{ workoutTip.tip2Description }}
-        </p>
-        <li class="text-white text-2xl mt-3">{{ workoutTip.tip3Title }}</li>
-        <p class="text-md mt-3">
-          {{ workoutTip.tip3Descrtiption }}
-        </p>
-      </ol>
-      <h1 class="text-white p-5 text-xl"></h1>
-    </div> -->
-
     <main class="w-full p-3 mx-auto text-white mb-40">
       <!-- <h1 class="mb-4">tailwind collapsible</h1> -->
       <section class="shadow">
@@ -45,7 +27,7 @@
               @click="openAccordion1"
               class="flex justify-between items-center py-5 p-4 pr-4 cursor-pointer select-none"
             >
-              <span class="text-grey-darkest text-xl">
+              <span class="text-grey-darkest text-xl md:text-3xl">
                 {{ workoutTip.tip1Title }}
               </span>
               <div
@@ -88,27 +70,28 @@
                 </svg>
               </div>
             </header>
-             <collapse-transition>
-            <div v-show="isOpenAccordion1">
-              <div class="px-3 pb-5 text-grey-darkest">
-                <ul class="py-2">
-                  <li class="pb-2 text-md text-justify">
-                    {{ workoutTip.tip1Description }}
-                  </li>
-                </ul>
-                <div v-if="workoutTip.tip1Gif"
-                  class="h-80 w-full bg-cover"
-                  :style="{
-                    background:
-                      'url(' +
-                      require('@/assets/fitness-img/workoutTips/' +
-                        workoutTip.tip1Gif) +
-                      ') center no-repeat',
-                  }"
-                ></div>
+            <collapse-transition>
+              <div v-show="isOpenAccordion1">
+                <div class="px-3 pb-5 text-grey-darkest">
+                  <ul class="py-2">
+                    <li class="pb-2 text-md md:text-2xl text-justify">
+                      {{ workoutTip.tip1Description }}
+                    </li>
+                  </ul>
+                  <div
+                    v-if="workoutTip.tip1Gif"
+                    class="h-80 md:h-96 w-full md:w-2/4 m-auto bg-cover"
+                    :style="{
+                      background:
+                        'url(' +
+                        require('@/assets/fitness-img/workoutTips/' +
+                          workoutTip.tip1Gif) +
+                        ') center no-repeat',
+                    }"
+                  ></div>
+                </div>
               </div>
-            </div>
-             </collapse-transition>
+            </collapse-transition>
           </div>
         </article>
 
@@ -118,7 +101,7 @@
               @click="openAccordion2"
               class="flex justify-between items-center py-5 p-4 pr-4 cursor-pointer select-none"
             >
-              <span class="text-grey-darkest text-xl">
+              <span class="text-grey-darkest text-xl md:text-3xl">
                 {{ workoutTip.tip2Title }}
               </span>
               <div
@@ -164,10 +147,11 @@
             <div v-show="isOpenAccordion2">
               <div class="px-3 pb-5 text-grey-darkest">
                 <ul class="py-2">
-                  <li class="pb-2">{{ workoutTip.tip2Description }}</li>
+                  <li class="pb-2 text-md md:text-2xl ">{{ workoutTip.tip2Description }}</li>
                 </ul>
-                <div v-if="workoutTip.tip2Gif"
-                  class="h-80 w-full bg-cover"
+                <div
+                  v-if="workoutTip.tip2Gif"
+                  class="h-80 w-full md:w-2/4 m-auto bg-cover"
                   :style="{
                     background:
                       'url(' +
@@ -187,7 +171,7 @@
               @click="openAccordion3"
               class="flex justify-between items-center py-5 p-4 pr-4 cursor-pointer select-none"
             >
-              <span class="text-grey-darkest text-xl">
+              <span class="text-grey-darkest text-xl md:text-3xl">
                 {{ workoutTip.tip3Title }}
               </span>
               <div
@@ -233,10 +217,11 @@
             <div v-show="isOpenAccordion3">
               <div class="px-3 pb-5 text-grey-darkest">
                 <ul class="py-2">
-                  <li class="pb-2">{{ workoutTip.tip3Description }}</li>
+                  <li class="pb-2 text-md md:text-2xl ">{{ workoutTip.tip3Description }}</li>
                 </ul>
-                <div v-if="workoutTip.tip3Gif"
-                  class="h-80 w-full bg-cover"
+                <div
+                  v-if="workoutTip.tip3Gif"
+                  class="h-80 w-full md:w-2/4 m-auto bg-cover"
                   :style="{
                     background:
                       'url(' +
@@ -256,7 +241,7 @@
               @click="openAccordion4"
               class="flex justify-between items-center py-5 p-4 pr-4 cursor-pointer select-none"
             >
-              <span class="text-grey-darkest text-xl">
+              <span class="text-grey-darkest text-xl md:text-3xl">
                 {{ workoutTip.tip4Title }}
               </span>
               <div
@@ -302,10 +287,11 @@
             <div v-show="isOpenAccordion4">
               <div class="px-3 pb-5 text-grey-darkest">
                 <ul class="py-2">
-                  <li class="pb-2">{{ workoutTip.tip4Description }}</li>
+                  <li class="pb-2 text-md md:text-2xl ">{{ workoutTip.tip4Description }}</li>
                 </ul>
-                <div v-if="workoutTip.tip4Gif"
-                  class="h-80 w-full"
+                <div
+                  v-if="workoutTip.tip4Gif"
+                  class="h-80 w-full md:w-2/4 m-auto"
                   :style="{
                     background:
                       'url(' +
@@ -327,7 +313,7 @@
 
 
 <script>
- import { CollapseTransition } from "@ivanv/vue-collapse-transition"
+import { CollapseTransition } from "@ivanv/vue-collapse-transition";
 const axios = require("axios");
 export default {
   props: ["id"],
@@ -345,7 +331,7 @@ export default {
     };
   },
   component: {
-      CollapseTransition,
+    CollapseTransition,
   },
   mounted() {
     axios
@@ -394,9 +380,9 @@ export default {
 
 
 <style lang="less">
-
-.bg-cover{
-    background-size: cover !important;
+.bg-cover {
+  background-size: cover !important;
+  background-position: center;
 }
 .isOpenAccordion {
   display: block;
@@ -406,10 +392,9 @@ export default {
   display: none;
 }
 
-// .testt{
-// //   background-image:url(https://media.self.com/photos/57aa008ad077f2273cf20475/master/w_1200,c_limit/squat_2.gif);
-//   background-repeat:no-repeat;
-
-//   background-color: transparent; background-image: url("https://media.self.com/photos/57aa008ad077f2273cf20475/master/w_1200,c_limit/squat_2.gif");
-// }
+@media only screen and (min-width: 768px) {
+//   .md-height {
+//       height: 33rem;
+//   }
+}
 </style>
