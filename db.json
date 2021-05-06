@@ -221,6 +221,44 @@
             "tip4Gif": "TotalBodyKettlebell-tip4Gif.gif",
             "workoutTipImg": "TotalBodyKettlebell-Tips-img.jpg"
         }
-    ]
+    ],
+    "workoutCaloriesBurner":[{
+        "id": 0,
+        "title": "Running",
+        "caloriesPerMinuteMale": 9,
+        "caloriesPerMinuteFemale": 8
+    },
+    {
+        "id": 1,
+        "title": "Aerobic, general",
+        "caloriesPerMinuteMale": 8,
+        "caloriesPerMinuteFemale": 7 
+    },
+    {
+        "id": 2,
+        "title": "Pilates, general",
+        "caloriesPerMinuteMale": 3,
+        "caloriesPerMinuteFemale": 3 
+    },
+    {
+        "id": 3,
+        "title": "Upper body Exercise",
+        "caloriesPerMinuteMale": 3,
+        "caloriesPerMinuteFemale": 3 
+    },
+    {
+        "id": 4,
+        "title": "Squats",
+        "caloriesPerMinuteMale": 6,
+        "caloriesPerMinuteFemale": 5 
+    },
+    {
+        "id": 5,
+        "title": "Calisthenics (push ups, sit ups, pull-ups, jumping)",
+        "caloriesPerMinuteMale": 6,
+        "caloriesPerMinuteFemale": 8 
+    }
+
+]
 
 }

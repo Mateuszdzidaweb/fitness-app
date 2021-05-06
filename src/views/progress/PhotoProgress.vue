@@ -34,7 +34,7 @@
       <div
         v-for="showUserProgressPhoto in showUserProgressPhotos"
         v-bind:key="showUserProgressPhoto.id"
-        class="w-5/6 h-60 px-3 h-22 m-auto mt-6 bg-color bg-size rounded-xl"
+        class="w-5/6 h-60 px-3 h-22 m-auto mt-6 bg-color bg-size rounded-xl mb-20"
         :style="{
           backgroundImage:
             'linear-gradient(rgb(0 0 0 / 0%), rgb(0 0 29)), url(' +
@@ -43,7 +43,7 @@
         }"
       >
         <button
-          class="delete-personal-photo text-2xl font-bold text-white rounded-2xl px-2"
+          class="delete-personal-photo text-xl font-bold uppercase text-white rounded-2xl px-2"
           @click="DelateProgressPhoto(showUserProgressPhoto.id)"
         >
           x
@@ -143,7 +143,6 @@ export default {
             .collection("progressPhotos")
             .doc(doc)
             .delete();
-            alert(doc);
         }
       });
       alert("Photo Deleted");
